@@ -1,44 +1,48 @@
-//this is a template!!!!!
-
+using Backend.Data;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
+// Load environment variables (optional, still useful for other configs)
+builder.Configuration.AddEnvironmentVariables();
+
+// Use connection string directly (no password replacement)
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
+// Retry until SQL Server is ready
+var maxRetries = 10;
+var delay = TimeSpan.FromSeconds(5);
+
+for (int i = 0; i < maxRetries; i++)
+{
+    try
+    {
+        using var connection = new SqlConnection(connectionString);
+        connection.Open();
+        Console.WriteLine("SQL Server is ready!");
+        break;
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"Waiting for SQL Server... {ex.Message}");
+        await Task.Delay(delay);
+    }
+}
+
+// Register DbContext
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlServer(connectionString));
+
+// Add controllers and Swagger
+builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.MapOpenApi();
-}
-
 app.UseHttpsRedirection();
-
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
-
-app.MapGet("/weatherforecast", () =>
-    {
-        var forecast = Enumerable.Range(1, 5).Select(index =>
-                new WeatherForecast
-                (
-                    DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-                    Random.Shared.Next(-20, 55),
-                    summaries[Random.Shared.Next(summaries.Length)]
-                ))
-            .ToArray();
-        return forecast;
-    })
-    .WithName("GetWeatherForecast");
+app.UseAuthorization();
+app.MapControllers();
 
 app.Run();
-
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}
