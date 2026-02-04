@@ -1,0 +1,111 @@
+.layout {
+    min-height: 100vh;
+    background: #f3ede6;
+    color: #2a1c14;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont;
+}
+
+/* HEADER */
+
+.header {
+    height: 64px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px;
+    background: #efe5da;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.primary-nav {
+    background: #d4b89c;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+}
+
+.profile {
+    width: 36px;
+    height: 36px;
+    background: #b08968;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    color: white;
+    font-weight: 600;
+}
+
+/* CONTENT */
+
+.content.center {
+    min-height: calc(100vh - 64px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 24px;
+    text-align: center;
+}
+
+.hero {
+    max-width: 640px;
+    margin-bottom: 48px;
+}
+
+.hero h1 {
+    font-size: 38px;
+    margin-bottom: 12px;
+}
+
+.hero p {
+    opacity: 0.8;
+    line-height: 1.6;
+}
+
+/* ACTION GRID */
+
+.action-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 800px;
+}
+
+.action-card {
+    padding: 22px;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 16px;
+    background: #fffaf5;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.action-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.1);
+}
+
+.action-card.primary {
+    background: #b08968;
+    color: white;
+}
+
+.action-card.admin {
+    background: #8a6b52;
+    color: white;
+}

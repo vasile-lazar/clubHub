@@ -1,30 +1,51 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import "./Home.css";
 
-const Home: React.FC = () => {
+export default function Home() {
     return (
-        <div style={{ padding: '20px' }}>
-            <h1>Welcome to ClubHub!</h1>
-            <p>Navigate to your pages:</p>
-            <ul>
-                <li>
-                    <Link to="/clubs">Clubs</Link>
-                </li>
-                <li>
-                    <Link to="/clubdetails">Club Details</Link>
-                </li>
-                <li>
-                    <Link to="/profile">Profile</Link>
-                </li>
-                <li>
-                    <Link to="/admin">Admin Panel</Link>
-                </li>
-                <li>
-                    <Link to="/colors">Color pallette</Link>
-                </li>
-            </ul>
+        <div className="layout">
+            <header className="header">
+                <div className="header-left">
+                    <span className="logo">ClubHub</span>
+                </div>
+
+                <div className="profile">V</div>
+            </header>
+
+            <main className="content center">
+                <section className="hero">
+                    <h1>Everything clubs need, in one place</h1>
+                    <p>
+                        Discover student clubs, manage events, and stay connected —
+                        without clutter.
+                    </p>
+                </section>
+
+                <section className="action-grid">
+                    <button className="action-card primary">
+                        Explore Clubs
+                    </button>
+
+                    <button className="action-card">
+                        My Clubs
+                    </button>
+
+                    <button className="action-card">
+                        Upcoming Events
+                    </button>
+
+                    <button className="action-card">
+                        Create a Club
+                    </button>
+
+                    <button className="action-card">
+                        My Profile
+                    </button>
+
+                    <button className="action-card admin">
+                        Admin Panel
+                    </button>
+                </section>
+            </main>
         </div>
     );
-};
-
-export default Home;
+}
