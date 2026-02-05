@@ -23,6 +23,7 @@ pnpm-debug.log*
 Thumbs.db
 
 # .NET
+backend/
 bin/
 obj/
 appsettings.json
