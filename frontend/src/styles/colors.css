@@ -1,0 +1,22 @@
+﻿:root {
+    /* Backgrounds */
+    --color-bg-primary: #2b2118;     /* dark brown  */
+    --color-bg-secondary: #3a2c20;   /* medium brown */
+    --color-bg-surface: #4a3a2a;     /* cards */
+
+    /* Text */
+    --color-text-primary: #f5f0e8;   /* beige */
+    --color-text-secondary: #d6cbb8;
+    --color-text-muted: #b0a38f;
+
+    /* Accents */
+    --color-accent-primary: #8b6b3e; /* wood */
+    --color-accent-hover: #a07d4f;
+
+    /* Borders */
+    --color-border: #5a4632;
+
+    /* UI */
+    --color-button-bg: var(--color-accent-primary);
+    --color-button-hover: var(--color-accent-hover);
+}
