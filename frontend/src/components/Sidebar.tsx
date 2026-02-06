@@ -1,5 +1,5 @@
-﻿import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+﻿import React, {useState} from 'react';
+import {Link} from 'react-router-dom';
 import '../styles/main.css';
 
 const Sidebar: React.FC = () => {
@@ -22,42 +22,29 @@ const Sidebar: React.FC = () => {
                     </header>
                     <ul>
                         <li><Link to="/">Homepage</Link></li>
-                        <li><Link to="/generic">Generic</Link></li>
-                        <li>
-                            <span
-                                className={`opener ${openSubmenus['submenu1'] ? 'active' : ''}`}
-                                onClick={() => toggleSubmenu('submenu1')}
-                                style={{ cursor: 'pointer' }}
-                            >
-                                Submenu
-                            </span>
-                            {openSubmenus['submenu1'] && (
-                                <ul>
-                                    <li><Link to="#">Lorem Dolor</Link></li>
-                                    <li><Link to="#">Ipsum Adipiscing</Link></li>
-                                </ul>
-                            )}
-                        </li>
-                        <li><Link to="/elements">Elements</Link></li>
+                        <li><Link to="/generic">Clubs</Link></li>
+                        <li><Link to="#">Events</Link></li>
+                        <li><Link to="#">Announcements</Link></li>
+
                     </ul>
                 </nav>
 
                 {/* Contact */}
                 <section>
                     <header className="major">
-                        <h2>Get in touch</h2>
+                        <h2>Have Questions?</h2>
                     </header>
                     <ul className="contact">
                         <li className="icon solid fa-envelope">
-                            <Link to="mailto:info@untitled.tld">info@untitled.tld</Link>
+                            <Link to="mailto:info@untitled.tld">contact@clubhub.university.edu</Link>
                         </li>
-                        <li className="icon solid fa-phone">(000) 000-0000</li>
+                        <li className="icon solid fa-phone">(123) 456-7890</li>
                     </ul>
                 </section>
 
                 {/* Footer */}
                 <footer id="footer">
-                    <p className="copyright">&copy; Untitled. All rights reserved.</p>
+                    <p className="copyright">&copy; 2026 ClubHub. All rights reserved.</p>
                 </footer>
 
             </div>

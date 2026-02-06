@@ -9,7 +9,7 @@ import pic04 from '../images/pic04.jpg';
 import pic05 from '../images/pic05.jpg';
 import pic06 from '../images/pic06.jpg';
 import bannerPic from '../images/pic10.jpg';
-// Interfețe pentru tipizarea datelor (Bonus pentru nota 10)
+
 interface Feature {
     icon: string;
     title: string;
@@ -24,22 +24,20 @@ interface Post {
 }
 
 const Home: React.FC = () => {
-    // Datele pentru secțiunea Features
     const features: Feature[] = [
-        { icon: 'fa-gem', title: 'Portitor ullamcorper', desc: 'Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore.' },
-        { icon: 'fa-paper-plane', title: 'Sapien veroeros', desc: 'Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore.' },
-        { icon: 'fa-rocket', title: 'Quam lorem ipsum', desc: 'Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore.' },
-        { icon: 'fa-signal', title: 'Sed magna finibus', desc: 'Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore.' },
+        { icon: 'fa-gem', title: 'Explore Opportunities', desc: 'Browse through all active university clubs and find the ones that match your interests.' },
+        { icon: 'fa-paper-plane', title: 'Join & Participate', desc: 'Sign up for club activities, workshops, and events with just a few clicks.' },
+        { icon: 'fa-rocket', title: 'Stay Updated', desc: 'Never miss an announcement or event — get real-time updates from your favorite clubs.' },
+        { icon: 'fa-signal', title: 'Network & Learn', desc: 'Meet like-minded students, develop skills, and make lasting connections.' },
     ];
-
-    // Datele pentru secțiunea Posts (ulterior le poți aduce din API-ul .NET)
+    
     const posts: Post[] = [
-        { id: 1, image: pic01, title: 'Interdum aenean', desc: 'Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore.' },
-        { id: 2, image: pic02, title: 'Nulla amet dolore', desc: 'Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore.' },
-        { id: 3, image: pic03, title: 'Tempus ullamcorper', desc: 'Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore.' },
-        { id: 4, image: pic04, title: 'Sed etiam facilis', desc: 'Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore.' },
-        { id: 5, image: pic05, title: 'Feugiat lorem aenean', desc: 'Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore.' },
-        { id: 6, image: pic06, title: 'Amet varius aliquam', desc: 'Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore.' },
+        { id: 1, image: pic01, title: 'Robotics Workshop', desc: 'Hands-on robotics workshop for beginners and advanced students. Learn to build and program robots!' },
+        { id: 2, image: pic02, title: 'Photography Club Meetup', desc: 'Capture the perfect campus moments. Meet fellow photographers and share your work.' },
+        { id: 3, image: pic03, title: 'Environmental Awareness Drive', desc: 'Join our volunteer campaign to make the campus greener and more sustainable.' },
+        { id: 4, image: pic04, title: 'Music Jam Session', desc: 'Bring your instruments and collaborate with other musicians in a relaxed environment.' },
+        { id: 5, image: pic05, title: 'Tech Talk: AI & Future', desc: 'Learn about the latest trends in AI from industry experts. Open for all students.' },
+        { id: 6, image: pic06, title: 'Annual Cultural Festival', desc: 'Celebrate diversity and talent in our annual festival featuring dance, music, and art.' },
     ];
 
     return (
@@ -48,12 +46,12 @@ const Home: React.FC = () => {
             <section id="banner">
                 <div className="content">
                     <header>
-                        <h1>Hi, I’m Editorial<br /> by HTML5 UP</h1>
-                        <p>A free and fully responsive site template</p>
+                        <h1>Welcome to ClubHub</h1>
+                        <p>Explore, Join, and Grow with University Clubs</p>
                     </header>
-                    <p>Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin aliquam facilisis ante interdum congue. Integer mollis, nisl amet convallis, porttitor magna ullamcorper, amet egestas mauris.</p>
+                    <p>Discover all the student clubs your university has to offer. From tech to sports, cultural to volunteering, ClubHub helps you find the perfect fit.</p>
                     <ul className="actions">
-                        <li><Link to="/about" className="button big">Learn More</Link></li>
+                        <li><Link to="/about" className="button big">Get Started</Link></li>
                     </ul>
                 </div>
                 <span className="image object">
@@ -64,7 +62,7 @@ const Home: React.FC = () => {
             {/* Section: Features */}
             <section>
                 <header className="major">
-                    <h2>Erat lacinia</h2>
+                    <h2>Why Join?</h2>
                 </header>
                 <div className="features">
                     {features.map((feature, index) => (
@@ -82,7 +80,7 @@ const Home: React.FC = () => {
             {/* Section: Posts */}
             <section>
                 <header className="major">
-                    <h2>Ipsum sed dolor</h2>
+                    <h2>Announcements</h2>
                 </header>
                 <div className="posts">
                     {posts.map((post) => (

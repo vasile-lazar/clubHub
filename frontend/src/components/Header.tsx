@@ -19,7 +19,7 @@ const Header: React.FC = () => {
     return (
         <header id="header">
             <Link to="/" className="logo">
-                <strong>Editorial</strong> by HTML5 UP
+                <strong>ClubHub</strong>
             </Link>
 
             <ul className="icons">
