@@ -25,7 +25,6 @@ const Sidebar: React.FC = () => {
                         <li><Link to="/generic">Clubs</Link></li>
                         <li><Link to="#">Events</Link></li>
                         <li><Link to="#">Announcements</Link></li>
-
                     </ul>
                 </nav>
 

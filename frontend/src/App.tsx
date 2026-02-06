@@ -1,25 +1,37 @@
-import React from 'react';
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
 import Header from './components/Header';
 import Home from './pages/Home';
+import LogIn from './pages/LogIn';
+import SignUp from './pages/SignUp';
+
+export interface User {
+    username: string;
+    password: string;
+    role: 'user' | 'admin';
+    pfp?: string; // optional profile picture
+}
+
 
 function App() {
-    return (
+    const [loggedInUser, setLoggedInUser] = useState<User | null>(null);
 
+    return (
         <Router>
-            <div id="wrapper">
-                <div id="main">
+            <div id="wrapper" className={loggedInUser ? '' : 'no-sidebar'}>
+                {loggedInUser && <Sidebar />}
+                <div id="main" style={{ width: loggedInUser ? undefined : '100%' }}>
                     <div className="inner">
-                        <Header/>
+                        <Header loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} />
                         <Routes>
-                            <Route path="/" element={<Home/>}/>
-                            <Route path="*" element={<div>Pagina nu a fost găsită (404)</div>}/>
+                            <Route path="/" element={<Home/>} />
+                            <Route path="/login" element={<LogIn setLoggedInUser={setLoggedInUser} />} />
+                            <Route path="/signup" element={<SignUp />} />
+                            <Route path="*" element={<div>Pagina nu a fost găsită (404)</div>} />
                         </Routes>
                     </div>
                 </div>
-
-                <Sidebar/>
             </div>
         </Router>
     );
