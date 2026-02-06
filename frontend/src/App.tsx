@@ -27,7 +27,7 @@ function App() {
                             <Route path="/" element={<Home/>} />
                             <Route path="/login" element={<LogIn setLoggedInUser={setLoggedInUser} />} />
                             <Route path="/signup" element={<SignUp />} />
-                            <Route path="*" element={<div>Pagina nu a fost găsită (404)</div>} />
+                            <Route path="*" element={<div style={{color: "red", textAlign: "center", paddingTop:370}}>Pagina nu a fost găsită (404)</div>} />
                         </Routes>
                     </div>
                 </div>
