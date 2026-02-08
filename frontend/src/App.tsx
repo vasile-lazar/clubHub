@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import LogIn from './pages/LogIn';
 import SignUp from './pages/SignUp';
 import Clubs from './pages/Clubs';
+import Announcements  from './pages/Announcements';
 
 export interface User {
     username: string;
@@ -29,6 +30,7 @@ function App() {
                             <Route path="/login" element={<LogIn setLoggedInUser={setLoggedInUser} />} />
                             <Route path="/signup" element={<SignUp />} />
                             <Route path="/clubs" element={<Clubs />} />
+                            <Route path="/announcements" element={<Announcements />} />
                             <Route path="*" element={<div style={{color: "red", textAlign: "center", paddingTop:370}}>Pagina nu a fost găsită (404)</div>} />
                         </Routes>
                     </div>
