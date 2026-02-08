@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import HomeLogged from './pages/HomeLogged';
 import LogIn from './pages/LogIn';
 import SignUp from './pages/SignUp';
+import MyProfile from './pages/MyProfile';
 
 export interface User {
     username: string;
@@ -37,6 +38,16 @@ function App() {
                             element={loggedInUser ? <Navigate to="/home-logged" replace /> : <Home />}
                         />
                         <Route path="/home-logged" element={<HomeLogged />} />
+                        <Route
+                            path="/profile"
+                            element={
+                                loggedInUser ? (
+                                    <MyProfile user={loggedInUser} setUser={setLoggedInUser} />
+                                ) : (
+                                    <Navigate to="/login" replace />
+                                )
+                            }
+                        />
                         <Route
                             path="/login"
                             element={<LogIn setLoggedInUser={setLoggedInUser} />}
