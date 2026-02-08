@@ -1,0 +1,14 @@
+﻿[
+  {
+    "id": 1,
+    "title": "Maintenance Downtime",
+    "description": "System maintenance will happen tomorrow from 2 AM to 5 AM.",
+    "date": "2026-02-08"
+  },
+  {
+    "id": 2,
+    "title": "New Features",
+    "description": "Admins have added a new messaging feature for clubs.",
+    "date": "2026-02-07"
+  }
+]

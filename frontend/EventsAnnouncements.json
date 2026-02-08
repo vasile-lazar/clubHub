@@ -1,0 +1,14 @@
+﻿[
+  {
+    "id": 1,
+    "title": "Coding Bootcamp",
+    "description": "Join our free coding bootcamp next week!",
+    "date": "2026-02-09"
+  },
+  {
+    "id": 2,
+    "title": "Poetry Night",
+    "description": "An open mic poetry night hosted by the Book Club.",
+    "date": "2026-02-10"
+  }
+]

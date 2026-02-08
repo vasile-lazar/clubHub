@@ -1,0 +1,14 @@
+﻿[
+  {
+    "id": 1,
+    "title": "New Book Club Created",
+    "description": "A new Book Club was created for literature lovers.",
+    "date": "2026-02-08"
+  },
+  {
+    "id": 2,
+    "title": "Art Club Update",
+    "description": "The Art Club added a new workshop on watercolor painting.",
+    "date": "2026-02-07"
+  }
+]
