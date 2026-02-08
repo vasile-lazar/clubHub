@@ -24,9 +24,11 @@ function App() {
                 <Sidebar
                     username={loggedInUser.username}
                     pfp={loggedInUser.pfp}
-                    setLoggedInUser={setLoggedInUser} // <--- important
+                    role={loggedInUser.role}
+                    setLoggedInUser={setLoggedInUser}
                 />
             )}
+
             <div className={`transition-all min-h-screen ${loggedInUser ? 'ml-64' : 'ml-0'}`}>
                 <Header loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} />
 

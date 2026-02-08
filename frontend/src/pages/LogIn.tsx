@@ -14,12 +14,19 @@ const LogIn: React.FC<LogInProps> = ({ setLoggedInUser }) => {
 
     const handleLogin = (e: React.FormEvent) => {
         e.preventDefault();
+
         // simple fake login
-        if (username === 'user' && password === '1234') {
+        if (username === 'user' && password === 'user') {
             setLoggedInUser({ username, password, role: 'user' });
             navigate('/home-logged');
+        } else if (username === 'admin' && password === 'admin') {
+            setLoggedInUser({ username, password, role: 'admin' });
+            navigate('/home-logged');
+        } else {
+            alert('Invalid credentials'); // optional feedback
         }
     };
+
 
     return (
         <div className="flex min-h-screen w-full">
