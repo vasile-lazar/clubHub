@@ -1,6 +1,8 @@
 ﻿import React from "react";
 import { Link } from "react-router-dom";
 
+import Header from "../components/Header.tsx"
+
 import pic01 from "../images/pic01.jpg";
 import pic02 from "../images/pic02.jpg";
 import pic03 from "../images/pic03.jpg";
@@ -56,8 +58,9 @@ const Home: React.FC = () => {
     ];
 
     return (
+        <>
+        <Header />
         <main className="pt-20 px-6 bg-gray-50 min-h-screen">
-
             {/* Banner */}
             <section className="relative bg-indigo-600 text-white rounded-lg overflow-hidden shadow-lg mb-16">
                 <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center p-8 md:p-16">
@@ -127,6 +130,7 @@ const Home: React.FC = () => {
                 </div>
             </section>
         </main>
+        </>
     );
 };
 
