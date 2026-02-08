@@ -16,7 +16,6 @@ export interface User {
 
 function App() {
     const [loggedInUser, setLoggedInUser] = useState<User | null>(null);
-
     return (
         <Router>
             <div id="wrapper" className={loggedInUser ? '' : 'no-sidebar'}>
