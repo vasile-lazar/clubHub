@@ -7,7 +7,7 @@ import LogIn from './pages/LogIn';
 import SignUp from './pages/SignUp';
 
 export interface User {
-    username: string;s
+    username: string;
     password: string;
     role: 'user' | 'admin';
     pfp?: string; // optional profile picture
