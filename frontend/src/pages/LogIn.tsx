@@ -10,12 +10,12 @@ const LogIn: React.FC<LogInProps> = ({ setLoggedInUser }) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [rememberMe, setRememberMe] = useState(false);
+    const [error, setError] = useState('');
     const navigate = useNavigate();
 
     const handleLogin = (e: React.FormEvent) => {
         e.preventDefault();
 
-        // simple fake login
         if (username === 'user' && password === 'user') {
             setLoggedInUser({ username, password, role: 'user' });
             navigate('/home-logged');
@@ -23,15 +23,26 @@ const LogIn: React.FC<LogInProps> = ({ setLoggedInUser }) => {
             setLoggedInUser({ username, password, role: 'admin' });
             navigate('/home-logged');
         } else {
-            alert('Invalid credentials'); // optional feedback
+            setError('Invalid username or password');
         }
     };
 
-
     return (
-        <div className="flex min-h-screen w-full">
+        <div className="relative flex min-h-screen w-full">
+            {/* Home button */}
+            <Link
+                to="/"
+                className="absolute top-6 right-6 z-20 bg-button-dark text-text-inverse px-4 py-2 rounded hover:bg-button-darkHover"
+            >
+                Go back
+            </Link>
+
             {/* Left photo */}
-            <div className="hidden md:flex md:w-1/2 flex-shrink-0">
+            <div className="hidden md:flex md:w-1/2 flex-shrink-0 relative">
+                <div className="absolute top-6 left-6 z-20 text-white text-2xl font-bold">
+                    ClubHub
+                </div>
+
                 <img
                     src={loginPhoto}
                     alt="Login"
@@ -54,20 +65,33 @@ const LogIn: React.FC<LogInProps> = ({ setLoggedInUser }) => {
                             type="text"
                             placeholder="Username"
                             value={username}
-                            onChange={(e) => setUsername(e.target.value)}
-                            className="w-full p-3 rounded border border-input-border focus:border-input-focus"
-                            required
-                        />
-                        <input
-                            type="password"
-                            placeholder="Password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
+                            onChange={(e) => {
+                                setUsername(e.target.value);
+                                setError('');
+                            }}
                             className="w-full p-3 rounded border border-input-border focus:border-input-focus"
                             required
                         />
 
-                        {/* Row under password: Remember me + Forgot Password */}
+                        <div className="space-y-1">
+                            <input
+                                type="password"
+                                placeholder="Password"
+                                value={password}
+                                onChange={(e) => {
+                                    setPassword(e.target.value);
+                                    setError('');
+                                }}
+                                className="w-full p-3 rounded border border-input-border focus:border-input-focus"
+                                required
+                            />
+                            {error && (
+                                <p className="text-sm text-red-500">
+                                    {error}
+                                </p>
+                            )}
+                        </div>
+
                         <div className="flex justify-between items-center text-sm mt-1">
                             <label className="flex items-center gap-2 text-text-secondary">
                                 <input
@@ -95,7 +119,6 @@ const LogIn: React.FC<LogInProps> = ({ setLoggedInUser }) => {
                         </button>
                     </form>
 
-                    {/* Sign up link under button */}
                     <p className="text-text-secondary text-center mt-6">
                         No account?{' '}
                         <Link

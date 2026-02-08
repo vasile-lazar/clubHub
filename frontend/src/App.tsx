@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
-import Header from './components/Header';
 import Home from './pages/Home';
 import HomeLogged from './pages/HomeLogged';
 import LogIn from './pages/LogIn';
@@ -30,8 +29,6 @@ function App() {
             )}
 
             <div className={`transition-all min-h-screen ${loggedInUser ? 'ml-64' : 'ml-0'}`}>
-                <Header loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} />
-
                 <div className="p-0">
                     <Routes>
                         {/* Redirect home to HomeLogged if signed in */}

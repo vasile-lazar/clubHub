@@ -1,6 +1,6 @@
 ﻿import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import registerPhoto from '../images/loginPhoto.jpg'; // same image as login
+import registerPhoto from '../images/loginPhoto.jpg';
 
 const SignUp: React.FC = () => {
     const [username, setUsername] = useState('');
@@ -18,24 +18,37 @@ const SignUp: React.FC = () => {
 
         setError('');
         alert('Registered successfully!');
-        // You could set the logged-in user here or redirect
     };
 
     return (
-        <div className="flex min-h-screen">
+        <div className="relative flex min-h-screen w-full">
+            {/* Home button */}
+            <Link
+                to="/"
+                className="absolute top-6 right-6 z-20 bg-button-dark text-text-inverse px-4 py-2 rounded hover:bg-button-darkHover"
+            >
+                Go back
+            </Link>
+
             {/* Left photo */}
-            <div className="w-1/2 hidden md:block">
+            <div className="hidden md:flex md:w-1/2 flex-shrink-0 relative">
+                <div className="absolute top-6 left-6 z-20 text-white text-2xl font-bold">
+                    ClubHub
+                </div>
+
                 <img
                     src={registerPhoto}
                     alt="Register"
-                    className="object-cover w-full h-full"
+                    className="object-cover w-full h-screen"
                 />
             </div>
 
             {/* Right form */}
-            <div className="w-full md:w-1/2 flex items-center justify-center bg-bg-primary p-8">
+            <div className="flex-1 flex items-center justify-center bg-bg-primary p-8">
                 <div className="max-w-md w-full space-y-8">
-                    <h2 className="text-3xl font-bold text-text-primary">Welcome to ClubHub</h2>
+                    <h2 className="text-3xl font-bold text-text-primary">
+                        Welcome to ClubHub
+                    </h2>
                     <p className="text-text-secondary">
                         Create your account to join the community
                     </p>
@@ -66,7 +79,11 @@ const SignUp: React.FC = () => {
                                 className="w-full p-3 rounded border border-input-border focus:border-input-focus"
                                 required
                             />
-                            {error && <p className="text-red-500 text-sm">{error}</p>}
+                            {error && (
+                                <p className="text-red-500 text-sm">
+                                    {error}
+                                </p>
+                            )}
                         </div>
 
                         <button
@@ -77,7 +94,6 @@ const SignUp: React.FC = () => {
                         </button>
                     </form>
 
-                    {/* Have an account link */}
                     <p className="text-text-secondary text-center mt-6">
                         Have an account?{' '}
                         <Link
