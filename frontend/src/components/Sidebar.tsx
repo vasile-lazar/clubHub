@@ -1,17 +1,7 @@
-﻿import React, {useState} from 'react';
+﻿import React from 'react';
 import {Link} from 'react-router-dom';
-import '../styles/main.css';
 
 const Sidebar: React.FC = () => {
-    const [openSubmenus, setOpenSubmenus] = useState<{ [key: string]: boolean }>({});
-
-    const toggleSubmenu = (name: string) => {
-        setOpenSubmenus(prev => ({
-            ...prev,
-            [name]: !prev[name],
-        }));
-    };
-
     return (
         <div id="sidebar">
             <div className="inner">
