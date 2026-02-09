@@ -5,6 +5,7 @@ import Header from "../components/Header.tsx"
 import Hero from "../components/Hero.tsx"
 import Footer from "../components/Footer.tsx"
 import RoleFeatures from "../components/RoleFeatures.tsx"
+import ClubCategories from "../components/ClubCategories.tsx"
 
 import pic01 from "../images/pic01.jpg";
 import pic02 from "../images/pic02.jpg";
@@ -70,7 +71,8 @@ const Home: React.FC = () => {
                 <Hero/>
                     {/* Features */}
                     <RoleFeatures/>
-    
+                    <ClubCategories/>
+                
                     {/* Announcements / Posts */}
                     <section className="mb-16">
                         <h2 className="text-3xl font-bold text-center mb-12">Announcements</h2>
