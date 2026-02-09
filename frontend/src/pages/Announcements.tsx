@@ -2,9 +2,9 @@
 import { Link } from "react-router-dom";
 
 // Import announcements JSON
-import clubsAnnouncements from "../../ClubAnnouncements.json";
-import eventsAnnouncements from "../../EventsAnnouncements.json";
-import systemAnnouncements from "../../SystemAnnouncements.json";
+import clubsAnnouncements from "../mockData/ClubAnnouncements.json";
+import eventsAnnouncements from "../mockData/EventsAnnouncements.json";
+import systemAnnouncements from "../mockData/SystemAnnouncements.json";
 
 export type Announcement = {
     id: number;

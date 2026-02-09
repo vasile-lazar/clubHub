@@ -1,6 +1,6 @@
 ﻿import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import clubsDataJson from "../../clubinfo.json"; 
+import clubsDataJson from "../mockData/clubinfo.json"; 
 
 export type Club = {
     id: number;
