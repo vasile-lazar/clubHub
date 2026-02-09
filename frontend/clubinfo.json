@@ -1,0 +1,72 @@
+﻿[
+  {
+    "id": 1,
+    "name": "Book Club",
+    "description": "Discuss books, authors, and stories every week.",
+    "members": 42,
+    "imageUrl": "https://picsum.photos/400/300?1"
+  },
+  {
+    "id": 2,
+    "name": "Coding Club",
+    "description": "Build projects and learn programming together.",
+    "members": 58,
+    "imageUrl": "https://picsum.photos/400/300?2"
+  },
+  {
+    "id": 3,
+    "name": "Art Club",
+    "description": "Draw, paint, and share creative ideas.",
+    "members": 31,
+    "imageUrl": "https://picsum.photos/400/300?3"
+  },
+  {
+    "id": 4,
+    "name": "Gaming Club",
+    "description": "Casual and competitive gaming sessions.",
+    "members": 76,
+    "imageUrl": "https://picsum.photos/400/300?4"
+  },
+  {
+    "id": 5,
+    "name": "Music Club",
+    "description": "Play instruments, sing, and share music.",
+    "members": 55,
+    "imageUrl": "https://picsum.photos/400/300?5"
+  },
+  {
+    "id": 6,
+    "name": "Photography Club",
+    "description": "Capture moments, learn techniques, and share photos.",
+    "members": 38,
+    "imageUrl": "https://picsum.photos/400/300?6"
+  },
+  {
+    "id": 7,
+    "name": "Science Club",
+    "description": "Conduct experiments and explore new scientific ideas.",
+    "members": 44,
+    "imageUrl": "https://picsum.photos/400/300?7"
+  },
+  {
+    "id": 8,
+    "name": "Drama Club",
+    "description": "Act, direct, and create theatrical performances.",
+    "members": 29,
+    "imageUrl": "https://picsum.photos/400/300?8"
+  },
+  {
+    "id": 9,
+    "name": "Environmental Club",
+    "description": "Promote sustainability and organize eco-friendly projects.",
+    "members": 33,
+    "imageUrl": "https://picsum.photos/400/300?9"
+  },
+  {
+    "id": 10,
+    "name": "Chess Club",
+    "description": "Play chess, compete, and improve your strategy skills.",
+    "members": 21,
+    "imageUrl": "https://picsum.photos/400/300?10"
+  }
+]
