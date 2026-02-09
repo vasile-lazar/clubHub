@@ -1,6 +1,6 @@
 ﻿import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import clubsDataJson from "C://Users//Admin//Documents//GitHub//clubHub//frontend//clubinfo.json"; // Use relative path
+import clubsDataJson from "../../clubinfo.json"; 
 
 export type Club = {
     id: number;

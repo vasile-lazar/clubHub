@@ -2,9 +2,9 @@
 import { Link } from "react-router-dom";
 
 // Import announcements JSON
-import clubsAnnouncements from "C://Users//Admin//Documents//GitHub//clubHub//frontend//ClubAnnouncements.json";
-import eventsAnnouncements from "C://Users//Admin//Documents//GitHub//clubHub//frontend//EventsAnnouncements.json";
-import systemAnnouncements from "C://Users//Admin//Documents//GitHub//clubHub//frontend//src//SystemAnnouncements.json";
+import clubsAnnouncements from "../../ClubAnnouncements.json";
+import eventsAnnouncements from "../../EventsAnnouncements.json";
+import systemAnnouncements from "../../SystemAnnouncements.json";
 
 export type Announcement = {
     id: number;
