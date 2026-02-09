@@ -4,6 +4,7 @@ import {Link} from "react-router-dom";
 import Header from "../components/Header.tsx"
 import Hero from "../components/Hero.tsx"
 import Footer from "../components/Footer.tsx"
+import RoleFeatures from "../components/RoleFeatures.tsx"
 
 import pic01 from "../images/pic01.jpg";
 import pic02 from "../images/pic02.jpg";
@@ -13,11 +14,6 @@ import pic05 from "../images/pic05.jpg";
 import pic06 from "../images/pic06.jpg";
 
 
-interface Feature {
-    icon: string;
-    title: string;
-    desc: string;
-}
 
 interface Post {
     id: number;
@@ -27,29 +23,7 @@ interface Post {
 }
 
 const Home: React.FC = () => {
-    const features: Feature[] = [
-        {
-            icon: "fa-gem",
-            title: "Explore Opportunities",
-            desc: "Browse through all active university clubs and find the ones that match your interests.",
-        },
-        {
-            icon: "fa-paper-plane",
-            title: "Join & Participate",
-            desc: "Sign up for club activities, workshops, and events with just a few clicks.",
-        },
-        {
-            icon: "fa-rocket",
-            title: "Stay Updated",
-            desc: "Never miss an announcement or event — get real-time updates from your favorite clubs.",
-        },
-        {
-            icon: "fa-signal",
-            title: "Network & Learn",
-            desc: "Meet like-minded students, develop skills, and make lasting connections.",
-        },
-    ];
-
+    
     const posts: Post[] = [
         {
             id: 1,
@@ -92,26 +66,10 @@ const Home: React.FC = () => {
     return (
         <>
             <Header/>
-            <main className="pt-20 px-6 bg-gray-50 min-h-screen">
+            <main className="pt-20 px-0 bg-gray-50 min-h-screen">
                 <Hero/>
                     {/* Features */}
-                    <section className="mb-16">
-                        <h2 className="text-3xl font-bold text-center mb-12">Why Join?</h2>
-                        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-                            {features.map((feature, index) => (
-                                <div
-                                    key={index}
-                                    className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition transform hover:-translate-y-1"
-                                >
-                                    <div className="text-indigo-500 text-4xl mb-4">
-                                        <i className={`fas ${feature.icon}`}></i>
-                                    </div>
-                                    <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-                                    <p className="text-gray-600">{feature.desc}</p>
-                                </div>
-                            ))}
-                        </div>
-                    </section>
+                    <RoleFeatures/>
     
                     {/* Announcements / Posts */}
                     <section className="mb-16">
