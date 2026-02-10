@@ -29,7 +29,7 @@ const Header: React.FC = () => {
                                 </Link>
                                 <Link
                                     to="/signup"
-                                    className="px-4 py-1 bg-button- rounded hover:bg-button-orangeHover transition-colors"
+                                    className=" text-white px-4 py-1 bg-slate-800 rounded hover:bg-black transition-colors"
                                 >
                                     Sign Up
                                 </Link>
