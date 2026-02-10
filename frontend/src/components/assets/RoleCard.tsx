@@ -30,7 +30,7 @@ const RoleCard: React.FC<CardProps> = ({
                                    }) => {
     return (
         <div
-            className={`relative p-8 rounded-3xl border-2 bg-slate-100 hover:shadow-xl transition-all duration-300  ${className}`}
+            className={`relative p-8 rounded-3xl border-2 bg-bg-primary hover:shadow-xl transition-all duration-300  ${className}`}
         >
             {/* Icon Slot */}
             {icon && (
