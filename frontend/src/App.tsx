@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import {useState} from 'react';
+import {BrowserRouter as Router} from 'react-router-dom';
 import AppRoutes from './routes/AppRoutes';
 
 export interface User {
@@ -14,7 +14,7 @@ function App() {
 
     return (
         <Router>
-            <AppRoutes loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} />
+                <AppRoutes loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>
         </Router>
     );
 }
