@@ -1,12 +1,12 @@
 ﻿import React from "react";
 
-import Header from "../sections/Header.tsx"
-import Hero from "../sections/Hero.tsx"
-import Footer from "../sections/Footer.tsx"
-import RoleFeatures from "../sections/RoleFeatures.tsx"
-import ClubCategories from "../sections/ClubCategories.tsx"
-import FeaturedEvents from "../sections/FeaturedEvents.tsx";
-import CallToAction from "../sections/CallToAction.tsx";
+import Header from "./sections/Header"
+import Hero from "./sections/Hero"
+import Footer from "./sections/Footer"
+import RoleFeatures from "./sections/RoleFeatures"
+import ClubCategories from "./sections/ClubCategories"
+import FeaturedEvents from "./sections/FeaturedEvents";
+import CallToAction from "./sections/CallToAction";
 
 const HomeView: React.FC = () => {
     

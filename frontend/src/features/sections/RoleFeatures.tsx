@@ -1,4 +1,4 @@
-import RoleCard from "./assets/RoleCard.tsx"
+import RoleCard from "../../components/RoleCard.tsx"
 
 const ROLES = [
     {
