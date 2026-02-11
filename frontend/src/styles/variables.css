@@ -1,25 +1,25 @@
-﻿/* Light mode*/
+﻿/* Light mode */
 :root {
     /* Brand Colors */
-    --brand-blue: #33488F; /* Deep Blue (primary) */
-    --brand-blue-dark: #1B2475; /* Rich dark blue */
-    --brand-orange: #F08C4B; /* Warm orange accent */
+    --brand-blue: #24336A;        /* Deep Dark Blue (primary) */
+    --brand-blue-dark: #1A2460;   /* Rich darker blue */
+    --brand-orange: #F08C4B;      /* Warm orange accent */
     --brand-orange-dark: #EB6711; /* Strong orange */
 
     /* Background Palette */
-    --bg-primary: #F1F4FA; /* Soft off‑white / light */
-    --bg-secondary: #E5E7EB; /* Gentle neutral */
-    --bg-surface: #FFFFFF; /* Card / surface white */
-    --bg-overlay: rgba(0, 0, 0, 0.4); /* Dark overlay for modals */
+    --bg-primary: #E9EDF7;    /* Slightly cooler soft off-white */
+    --bg-secondary: #D8DDEB;  /* Gentle neutral, slightly darker than bg-primary */
+    --bg-surface: #FFFFFF;    /* Card / surface white */
+    --bg-overlay: rgba(0, 0, 0, 0.4);
 
     /* Text Colors */
-    --text-primary: #1E293B; /* Dark slate (good contrast) */
-    --text-secondary: rgba(30, 41, 59, 0.7); /* Medium/soft text */
-    --text-inverse: #FFFFFF; /* Light text on dark bg */
-    --text-placeholder: rgba(30, 41, 59, 0.4); /* Lighter placeholder */
+    --text-primary: #1A2340;       /* Darker slate/blue-gray */
+    --text-secondary: rgba(26, 35, 64, 0.7);
+    --text-inverse: #FFFFFF;
+    --text-placeholder: rgba(26, 35, 64, 0.4);
 
     /* Borders & Shadows */
-    --border-default: rgba(30, 41, 59, 0.15);
+    --border-default: rgba(26, 35, 64, 0.15);
     --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
     --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
 
@@ -28,25 +28,24 @@
     --btn-primary-hover: #EA6B0F;
     --btn-disabled-bg: rgba(240, 140, 75, 0.4);
 
-    --btn-secondary-bg: var(--brand-blue-dark);
-    --btn-secondary-hover: #283548;
+    --btn-secondary-bg: #0B1730;    /* Darker blue for secondary button */
+    --btn-secondary-hover: #08102B; /* Hover slightly darker */
 
     /* Form & Inputs */
-    --input-border: rgba(30, 41, 59, 0.3);
+    --input-border: rgba(26, 35, 64, 0.3);
     --input-focus: var(--brand-orange);
 }
 
-/*Dark mode*/
-
+/* Dark mode */
 .dark {
     /* Background Palette */
-    --bg-primary: #0F1B2A; /* Dark navy background */
-    --bg-secondary: #142C44; /* Slightly lighter dark bg */
-    --bg-surface: #1E2A38; /* Cards & surfaces */
+    --bg-primary: #0F1B2A;
+    --bg-secondary: #142444;  /* Slightly darker for contrast */
+    --bg-surface: #1C2A3B;    /* Richer card color */
     --bg-overlay: rgba(0, 0, 0, 0.6);
 
     /* Text Colors */
-    --text-primary: #E5E9F0; /* Light text */
+    --text-primary: #E5E9F0;
     --text-secondary: rgba(229, 233, 240, 0.8);
     --text-inverse: #0F1B2A;
     --text-placeholder: rgba(229, 233, 240, 0.5);
@@ -61,11 +60,10 @@
     --btn-primary-hover: #F16213;
     --btn-disabled-bg: rgba(235, 103, 17, 0.4);
 
-    --btn-secondary-bg: var(--brand-blue);
-    --btn-secondary-hover: #4056A1;
+    --btn-secondary-bg: #1E2D4B;    /* Darker blue for dark mode secondary button */
+    --btn-secondary-hover: #334366; /* Slightly lighter on hover for feedback */
 
     /* Form & Inputs */
     --input-border: rgba(229, 233, 240, 0.3);
     --input-focus: var(--brand-orange-dark);
 }
-
