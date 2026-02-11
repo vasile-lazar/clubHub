@@ -1,4 +1,4 @@
-﻿import EventCard from "./assets/EventCard.tsx";
+﻿import EventCard from "../../components/EventCard.tsx";
 
 const EVENTS = [
     {

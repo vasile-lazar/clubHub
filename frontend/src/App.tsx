@@ -7,7 +7,7 @@ import LogIn from './pages/LogIn';
 import SignUp from './pages/SignUp';
 import MyProfile from './pages/MyProfile';
 import Clubs from "./pages/Clubs.tsx";
-import Announcements from "./pages/Announcements.tsx";
+import Events from "./pages/Events.tsx";
 
 export interface User {
     username: string;
@@ -40,7 +40,7 @@ function App() {
                         />
                         <Route path="/home-logged" element={<HomeLogged />} />
                         <Route path="clubs" element={<Clubs/>}></Route>
-                        <Route path="announcements" element={<Announcements/>}></Route>
+                        <Route path="announcements" element={<Events/>}></Route>
                         <Route
                             path="/profile"
                             element={

@@ -1,4 +1,4 @@
-﻿import CategoryCard from "./assets/CategoryCard.tsx";
+﻿import CategoryCard from "../../components/CategoryCard.tsx";
 const CATEGORIES = [
     { id: 1, name: 'Academic', icon: '', count: '12 Clubs', color: 'bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400' },
     { id: 2, name: 'Sports', icon: '', count: '8 Clubs', color: 'bg-orange-50 dark:bg-orange-900/20 text-orange-600 dark:text-orange-400' },
