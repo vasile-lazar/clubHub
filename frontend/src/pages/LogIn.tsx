@@ -1,6 +1,6 @@
 ﻿import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import loginPhoto from '../images/loginPhoto.jpg';
+import loginPhoto from '../assets/images/loginPhoto.jpg';
 
 interface LogInProps {
     setLoggedInUser: (user: any) => void;
