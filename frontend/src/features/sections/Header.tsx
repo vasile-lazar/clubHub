@@ -1,32 +1,18 @@
-﻿import { useState, useEffect } from "react";
+﻿import { useState } from "react";
 import { Link } from "react-router-dom";
 import { SunIcon, MoonIcon } from "@heroicons/react/24/solid";
 
 const Header: React.FC = () => {
-    const [theme, setTheme] = useState<"light" | "dark">("light");
-
-    // Load theme from localStorage or system preference
-    useEffect(() => {
-        const storedTheme = localStorage.getItem("theme") as "light" | "dark" | null;
-        if (storedTheme) {
-            setTheme(storedTheme);
-            document.documentElement.classList.toggle("dark", storedTheme === "dark");
-        } else {
-            const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-            setTheme(prefersDark ? "dark" : "light");
-            document.documentElement.classList.toggle("dark", prefersDark);
-        }
-    }, []);
+    const [theme, setTheme] = useState<"light" | "dark">("light"); // start in light mode
 
     const toggleTheme = () => {
         const newTheme = theme === "light" ? "dark" : "light";
         setTheme(newTheme);
-        localStorage.setItem("theme", newTheme);
-        document.documentElement.classList.toggle("dark", newTheme === "dark");
+        document.documentElement.classList.toggle("dark", newTheme === "dark"); // toggle dark class
     };
 
     return (
-        <header className="fixed w-full z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-100 dark:border-gray-700 transition-colors">
+        <header className="fixed w-full z-50 bg-bg-primary backdrop-blur-md border-b border-gray-100 dark:border-gray-700 transition-colors">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between h-16 items-center">
                     {/* Logo */}
