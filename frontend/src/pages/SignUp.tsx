@@ -1,6 +1,6 @@
 ﻿import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import registerPhoto from '../images/loginPhoto.jpg';
+import registerPhoto from '../assets/images/loginPhoto.jpg';
 
 const SignUp: React.FC = () => {
     const [username, setUsername] = useState('');
