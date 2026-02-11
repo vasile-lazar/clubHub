@@ -1,26 +1,71 @@
-﻿:root {
-    /* Backgrounds */
-    --bg-primary: #f9fafb;      /* Very light gray */
-    --bg-secondary: #e5e7eb;    /* Light cool gray */
+﻿/* Light mode*/
+:root {
+    /* Brand Colors */
+    --brand-blue: #33488F;           /* Deep Blue (primary) */
+    --brand-blue-dark: #1B2475;      /* Rich dark blue */
+    --brand-orange: #F08C4B;         /* Warm orange accent */
+    --brand-orange-dark: #EB6711;    /* Strong orange */
 
-    /* Text */
-    --text-primary: #1e293b;    /* Dark blue-gray */
-    --text-secondary: rgba(30, 41, 59, 0.7); /* 70% opacity */
-    --text-inverse: #f9fafb;    /* Very light gray */
+    /* Background Palette */
+    --bg-primary: #F1F4FA;           /* Soft off‑white / light */
+    --bg-secondary: #E5E7EB;         /* Gentle neutral */
+    --bg-surface: #FFFFFF;           /* Card / surface white */
+    --bg-overlay: rgba(0, 0, 0, 0.4); /* Dark overlay for modals */
 
-    /* Buttons & CTA */
-    --color-orange: #f97316;    /* Orange */
-    --orange-hover: #ea6b0f;
-    --orange-disabled: rgba(249, 115, 22, 0.4);
+    /* Text Colors */
+    --text-primary: #1E293B;         /* Dark slate (good contrast) */
+    --text-secondary: rgba(30, 41, 59, 0.7); /* Medium/soft text */
+    --text-inverse: #FFFFFF;         /* Light text on dark bg */
+    --text-placeholder: rgba(30, 41, 59, 0.4); /* Lighter placeholder */
 
-    /* Secondary Button */
-    --dark-button-bg: #1e293b;
-    --dark-button-hover: #283548;
+    /* Borders & Shadows */
+    --border-default: rgba(30, 41, 59, 0.15);
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
 
-    /* Forms & Inputs */
+    /* Buttons & States */
+    --btn-primary-bg: var(--brand-orange);
+    --btn-primary-hover: #EA6B0F;
+    --btn-disabled-bg: rgba(240, 140, 75, 0.4);
+
+    --btn-secondary-bg: var(--brand-blue-dark);
+    --btn-secondary-hover: #283548;
+
+    /* Form & Inputs */
     --input-border: rgba(30, 41, 59, 0.3);
-    --input-focus: #f97316;
+    --input-focus: var(--brand-orange);
+}
 
-    /* Cards & surfaces */
-    --card-border: rgba(30, 41, 59, 0.2);
+/*Dark mode*/
+@media (prefers-color-scheme: dark) {
+    :root {
+        /* Background Palette */
+        --bg-primary: #0F1B2A;           /* Dark navy background */
+        --bg-secondary: #142C44;         /* Slightly lighter dark bg */
+        --bg-surface: #1E2A38;           /* Cards & surfaces */
+        --bg-overlay: rgba(0, 0, 0, 0.6);
+
+        /* Text Colors */
+        --text-primary: #E5E9F0;         /* Light text */
+        --text-secondary: rgba(229, 233, 240, 0.8);
+        --text-inverse: #0F1B2A;
+        --text-placeholder: rgba(229, 233, 240, 0.5);
+
+        /* Borders & Shadows */
+        --border-default: rgba(229, 233, 240, 0.15);
+        --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+        --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.6);
+
+        /* Buttons & States */
+        --btn-primary-bg: var(--brand-orange-dark);
+        --btn-primary-hover: #F16213;
+        --btn-disabled-bg: rgba(235, 103, 17, 0.4);
+
+        --btn-secondary-bg: var(--brand-blue);
+        --btn-secondary-hover: #4056A1;
+
+        /* Form & Inputs */
+        --input-border: rgba(229, 233, 240, 0.3);
+        --input-focus: var(--brand-orange-dark);
+    }
 }
