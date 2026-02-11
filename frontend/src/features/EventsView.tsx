@@ -32,10 +32,10 @@ const AnnouncementsPage: React.FC = () => {
                 backgroundImage: "url('https://i.pinimg.com/1200x/ae/72/36/ae72360755cf813f1358c529af7b2965.jpg')"
             }}
         >
-            
-        <div className="grid gap-6 lg:grid-cols-3 mt-16">
+
+            <div className="grid gap-6 lg:grid-cols-3 mt-16">
                 {/* Clubs Announcements */}
-            <div className="bg-white/90 backdrop-blur-sm border border-card-border rounded-2xl p-4 shadow-lg flex flex-col max-h-[80vh] overflow-y-auto">
+                <div className="bg-white/90 backdrop-blur-sm border border-card-border rounded-2xl p-4 shadow-lg flex flex-col max-h-[80vh] overflow-y-auto">
                     <h2 className="text-xl font-semibold mb-4 flex justify-between items-center text-blue-800">
                         Clubs
                         <Link
@@ -68,7 +68,7 @@ const AnnouncementsPage: React.FC = () => {
                 </div>
 
                 {/* Events Announcements */}
-            <div className="bg-white/90 backdrop-blur-sm border border-card-border rounded-2xl p-4 shadow-lg flex flex-col max-h-[80vh] overflow-y-auto">
+                <div className="bg-white/90 backdrop-blur-sm border border-card-border rounded-2xl p-4 shadow-lg flex flex-col max-h-[80vh] overflow-y-auto">
                     <h2 className="text-xl font-semibold mb-4 flex justify-between items-center text-green-800">
                         Events
                         <Link
@@ -109,7 +109,7 @@ const AnnouncementsPage: React.FC = () => {
                 </div>
 
                 {/* System Announcements */}
-            <div className="bg-white/90 backdrop-blur-sm border border-card-border rounded-2xl p-4 shadow-lg flex flex-col max-h-[80vh] overflow-y-auto">
+                <div className="bg-white/90 backdrop-blur-sm border border-card-border rounded-2xl p-4 shadow-lg flex flex-col max-h-[80vh] overflow-y-auto">
                     <h2 className="text-xl font-semibold mb-4 flex justify-between items-center text-red-800">
                         System
                         <Link
