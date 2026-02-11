@@ -15,7 +15,7 @@ const Sidebar: React.FC<SidebarProps> = ({ username = 'User', pfp, role = 'user'
     const handleLogout = () => {
         if (setLoggedInUser) {
             setLoggedInUser(null);
-            navigate('/login');
+            navigate('/');
         }
     };
 
