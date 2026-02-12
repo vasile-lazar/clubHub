@@ -13,7 +13,7 @@ const HomeView: React.FC = () => {
     return (
         <>
             <Header/>
-                <main className="pt-14 bg-gray-50 min-h-screen">
+                <main className="pt-14 bg-bg-primary min-h-screen">
                     <Hero/>
                     <RoleFeatures/>
                     <ClubCategories/>

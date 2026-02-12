@@ -1,4 +1,3 @@
-// src/routes/AppRoutes.tsx
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import GuestLayout from '../layouts/GuestLayout';
@@ -11,6 +10,7 @@ import SignUp from '../pages/SignUp';
 import MyProfile from '../pages/MyProfile';
 import Clubs from '../pages/Clubs';
 import Events from '../pages/Events';
+
 
 import type { User } from '../App';
 
