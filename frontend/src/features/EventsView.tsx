@@ -1,76 +1,47 @@
-﻿import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import eventsAnnouncements from "../_mock/EventsAnnouncements.json";
+﻿import rawEvents from "../_mock/EventsAnnouncements.json";
 
-
-export type Announcement = {
+export type Event = {
     id: number;
     title: string;
     description: string;
     date: string;
-    imageUrl?: string; 
+    imageUrl?: string;
 };
+const eventsAnnouncements = rawEvents
 
-const AnnouncementsPage: React.FC = () => {
-    // Track which announcement is expanded
-    const [expandedIds, setExpandedIds] = useState<{ [key: string]: boolean }>({});
 
-    const toggleExpand = (section: string, id: number) => {
-        setExpandedIds((prev) => ({
-            ...prev,
-            [`${section}-${id}`]: !prev[`${section}-${id}`],
-        }));
-    };
-
+const EventsPage: React.FC = () => {
     return (
-        <div
-            className="min-h-screen p-6 text-text-primary relative bg-cover bg-center"
-            style={{
-                backgroundImage: "url('https://i.pinimg.com/1200x/ae/72/36/ae72360755cf813f1358c529af7b2965.jpg')"
-            }}
-        >
-                {/* Events Announcements */}
-                <div className="bg-white/90 backdrop-blur-sm border border-card-border rounded-2xl p-4 shadow-lg flex flex-col">
-                    <h2 className="text-xl font-semibold mb-4 flex justify-between items-center text-green-800">
-                        Events
-                        <Link
-                            to="/announcements/new?type=event"
-                            className="px-2 py-1 rounded-full bg-button-orange text-text-inverse text-sm hover:bg-button-orangeHover transition"
+        <div className="min-h-screen flex justify-center bg-bg-primary py-16">
+            <div className="p-5 overflow-x-auto">
+                <div className="flex space-x-6">
+                    {eventsAnnouncements.map((event: Event) => (
+                        <div
+                            key={event.id}
+                            className="flex-shrink-0 h-[500px] w-[400px] bg-white rounded-2xl shadow-lg overflow-hidden cursor-pointer hover:shadow-2xl transition"
                         >
-                            +
-                        </Link>
-                    </h2>
-                    <ul className="space-y-4">
-                        {eventsAnnouncements.map((ann: Announcement) => {
-                            const isExpanded = expandedIds[`event-${ann.id}`];
-                            return (
-                                <li
-                                    key={ann.id}
-                                    className="border-b border-input-border pb-2 cursor-pointer rounded hover:shadow-md transition overflow-hidden"
-                                    onClick={() => toggleExpand("event", ann.id)}
-                                >
-                                    {ann.imageUrl && (
-                                        <div
-                                            className="h-40 w-full bg-cover bg-center rounded-t-xl"
-                                            style={{ backgroundImage: `url(${ann.imageUrl})` }}
-                                        />
-                                    )}
-                                    <div className="p-2">
-                                        <h3 className="font-medium text-green-900">{ann.title}</h3>
-                                        {isExpanded && (
-                                            <>
-                                                <p className="text-sm text-text-secondary mt-1">{ann.description}</p>
-                                                <span className="text-xs text-text-secondary">{ann.date}</span>
-                                            </>
-                                        )}
-                                    </div>
-                                </li>
-                            );
-                        })}
-                    </ul>
+                            {/* Image on the left */}
+                            {event.imageUrl && (
+                                <div
+                                    className="h-72 w-full bg-cover bg-center"
+                                    style={{ backgroundImage: `url(${event.imageUrl})` }}
+                                />
+                            )}
+
+                            {/* Event details */}
+                            <div className="p-4 flex flex-col justify-between h-[150px]">
+                                <h2 className="text-xl font-bold mb-2">{event.title}</h2>
+                                <p className="text-sm text-gray-600">{event.description}</p>
+                                <div className="mt-2 flex justify-between text-xs text-gray-500">
+                                    <span>{event.date}</span>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
                 </div>
+            </div>
         </div>
     );
 };
 
-export default AnnouncementsPage;
+export default EventsPage;

@@ -1,40 +1,38 @@
 ﻿[
-  [
-    {
-      "id": 1,
-      "title": "Tech Innovation Workshop 2026",
-      "description": "Join us for an interactive workshop focused on modern web development, AI tools, and startup innovation. Industry mentors will guide participants through real-world case studies and hands-on coding sessions. Open to all skill levels.",
-      "date": "March 12, 2026",
-      "imageUrl": "https://images.unsplash.com/photo-1519389950473-47ba0277781c"
-    },
-    {
-      "id": 2,
-      "title": "Spring Music Festival",
-      "description": "Celebrate the arrival of spring with live performances from student bands, solo artists, and guest performers. Food stands and activity booths will be available throughout the event.",
-      "date": "April 5, 2026",
-      "imageUrl": "https://images.unsplash.com/photo-1506157786151-b8491531f063"
-    },
-    {
-      "id": 3,
-      "title": "Charity Run for Education",
-      "description": "Participate in our annual 5K charity run to support educational programs for underprivileged students. Registration includes a free t-shirt and refreshments.",
-      "date": "April 20, 2026",
-      "imageUrl": "https://images.unsplash.com/photo-1552674605-db6ffd4facb5"
-    },
-    {
-      "id": 4,
-      "title": "Art & Photography Exhibition",
-      "description": "Experience creativity at its finest during our annual student art exhibition. Featuring paintings, digital artwork, and photography projects from talented artists across campus.",
-      "date": "May 2, 2026",
-      "imageUrl": "https://images.unsplash.com/photo-1513364776144-60967b0f800f"
-    },
-    {
-      "id": 5,
-      "title": "Career Networking Night",
-      "description": "Meet professionals from various industries, build connections, and explore internship and job opportunities. Bring your CV and dress professionally.",
-      "date": "May 18, 2026",
-      "imageUrl": "https://images.unsplash.com/photo-1552664730-d307ca884978"
-    }
-  ]
-
+  {
+    "id": 1,
+    "title": "Tech Innovation Workshop 2026",
+    "description": "Join us for an interactive workshop focused on modern web development, AI tools, and startup innovation. Industry mentors will guide participants through real-world case studies and hands-on coding sessions. Open to all skill levels.",
+    "date": "March 12, 2026",
+    "imageUrl": "https://images.unsplash.com/photo-1519389950473-47ba0277781c"
+  },
+  {
+    "id": 2,
+    "title": "Spring Music Festival",
+    "description": "Celebrate the arrival of spring with live performances from student bands, solo artists, and guest performers. Food stands and activity booths will be available throughout the event.",
+    "date": "April 5, 2026",
+    "imageUrl": "https://images.unsplash.com/photo-1506157786151-b8491531f063"
+  },
+  {
+    "id": 3,
+    "title": "Charity Run for Education",
+    "description": "Participate in our annual 5K charity run to support educational programs for underprivileged students. Registration includes a free t-shirt and refreshments.",
+    "date": "April 20, 2026",
+    "imageUrl": "https://images.unsplash.com/photo-1552674605-db6ffd4facb5"
+  },
+  {
+    "id": 4,
+    "title": "Art & Photography Exhibition",
+    "description": "Experience creativity at its finest during our annual student art exhibition. Featuring paintings, digital artwork, and photography projects from talented artists across campus.",
+    "date": "May 2, 2026",
+    "imageUrl": "https://images.unsplash.com/photo-1513364776144-60967b0f800f"
+  },
+  {
+    "id": 5,
+    "title": "Career Networking Night",
+    "description": "Meet professionals from various industries, build connections, and explore internship and job opportunities. Bring your CV and dress professionally.",
+    "date": "May 18, 2026",
+    "imageUrl": "https://images.unsplash.com/photo-1552664730-d307ca884978"
+  }
 ]
+  
