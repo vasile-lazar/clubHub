@@ -29,7 +29,7 @@ const ROLES = [
 
 const RoleFeatures = () => {
     return (
-        <section className="py-24 bg-orange-600 bg-opacity-10">
+        <section className="h-screen py-24 bg-bg-secondary bg-opacity-10">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
                     <h2 className="text-3xl font-bold text-black  mb-4">Built for the Entire Campus</h2>
