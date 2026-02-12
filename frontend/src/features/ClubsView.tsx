@@ -39,7 +39,7 @@ const ClubsPage: React.FC = () => {
                     />
                     <button
                         onClick={handleSearch}
-                        className="px-4 rounded-r-xl bg-button-orange text-text-inverse font-medium hover:bg-button-orangeHover transition"
+                        className="px-4 rounded-r-xl bg-button-primary hover:bg-button-primaryHover text-text-inverse font-medium hover:bg-button-orangeHover transition"
                     >
                         Search
                     </button>
@@ -48,7 +48,7 @@ const ClubsPage: React.FC = () => {
                 {/* Add New Club button (separate) */}
                 <Link
                     to="/clubs/new"
-                    className="px-4 py-3 rounded-xl bg-button-orange text-text-inverse text-sm font-medium hover:bg-button-orangeHover transition"
+                    className="px-4 py-4 rounded-xl bg-button-primary hover:bg-button-primaryHover text-text-inverse text-sm font-medium hover:bg-button-orangeHover transition"
                 >
                     Add New Club
                 </Link>
@@ -88,7 +88,7 @@ const ClubsPage: React.FC = () => {
 
                                     <Link
                                         to={`/clubs/${club.id}`}
-                                        className="px-3 py-1.5 rounded-xl bg-button-orange text-text-inverse text-sm font-medium hover:bg-button-orangeHover transition"
+                                        className="px-3 py-1.5 rounded-xl bg-button-primary hover:bg-button-primaryHover text-text-inverse text-sm font-medium hover:bg-button-orangeHover transition"
                                     >
                                         View
                                     </Link>
