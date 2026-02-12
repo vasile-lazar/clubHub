@@ -1,7 +1,5 @@
 ﻿import React, { useState } from "react";
 import { Link } from "react-router-dom";
-
-// Import announcements JSON
 import clubsAnnouncements from "../_mock/ClubAnnouncements.json";
 import eventsAnnouncements from "../_mock/EventsAnnouncements.json";
 import systemAnnouncements from "../_mock/SystemAnnouncements.json";
@@ -11,7 +9,7 @@ export type Announcement = {
     title: string;
     description: string;
     date: string;
-    imageUrl?: string; // optional, useful for events
+    imageUrl?: string; 
 };
 
 const AnnouncementsPage: React.FC = () => {
