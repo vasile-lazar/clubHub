@@ -141,7 +141,7 @@ const Sidebar: React.FC<SidebarProps> = ({ username = 'User', pfp, role = 'user'
             <div className="p-4 border-t border-card-border">
                 <button
                     onClick={handleLogout}
-                    className="w-full bg-button-dark text-text-inverse p-2 rounded hover:bg-button-darkHover"
+                    className="w-full bg-button-secondary text-text-inverse p-2 rounded hover:bg-button-darkHover"
                 >
                     Log Out
                 </button>

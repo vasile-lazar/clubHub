@@ -62,7 +62,7 @@ const ClubsPage: React.FC = () => {
                     {filteredClubs.map((club) => (
                         <div
                             key={club.id}
-                            className="rounded-2xl overflow-hidden bg-bg-secondary border border-card-border shadow-sm hover:shadow-lg transition flex flex-col"
+                            className="rounded-2xl overflow-hidden bg-bg-secondary border-none shadow-sm hover:shadow-lg transition flex flex-col"
                         >
                             {club.imageUrl && (
                                 <img
