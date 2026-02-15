@@ -20,6 +20,7 @@ module.exports = {
           placeholder: 'var(--text-placeholder)',
           link: 'var(--text-link)',
           linkHover: 'var(--text-link-hover)',
+          warning: 'var(--text-warning)',
         },
         button: {
           primary: 'var(--btn-primary-bg)',
