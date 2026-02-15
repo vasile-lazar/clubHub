@@ -48,7 +48,7 @@ const AppRoutes: React.FC<AppRoutesProps> = ({ loggedInUser, setLoggedInUser }) 
                         element={<MyProfile user={loggedInUser} setUser={setLoggedInUser} />}
                     />
                     <Route path="/clubs" element={<Clubs />} />
-                    <Route path="/announcements" element={<Events />} />
+                    <Route path="/events" element={<Events />} />
                 </Route>
             )}
 

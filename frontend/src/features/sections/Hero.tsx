@@ -2,7 +2,7 @@
 
 const Hero: React.FC = () => {
     return (
-        <section className="relative min-h-[700px] flex items-center bg-bg-secondary overflow-hidden ">
+        <section className="relative h-screen flex items-center bg-bg-primary overflow-hidden ">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
 
@@ -55,7 +55,7 @@ const Hero: React.FC = () => {
                     />
 
                     {/* Overlay Gradient to blend with white background */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-bg-secondary via-bg-secondary/30 to-transparent transition-colors duration-500" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-bg-primary via-bg-secondary/30 to-transparent transition-colors duration-500" />
                 </div>
             </div>
         </section>
