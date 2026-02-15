@@ -2,7 +2,7 @@
 
 const Hero: React.FC = () => {
     return (
-        <section className="relative h-screen flex items-center bg-bg-primary overflow-hidden ">
+        <section className="relative h-screen flex items-center overflow-hidden ">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
 
@@ -10,7 +10,7 @@ const Hero: React.FC = () => {
                     <div className="max-w-2xl py-12 lg:py-0 relative z-10">
                             <h1 className="text-5xl lg:text-6xl font-extrabold text-text-primary  tracking-tight mb-6 leading-[1.15]">
                                 Discover Your <br/>
-                                <span className="text-orange-600">Campus Community</span>
+                                <span className="text-text-orange">Campus Community</span>
                             </h1>
 
                             <p className="text-lg text-text-secondary mb-8 leading-relaxed max-w-lg">
@@ -18,28 +18,14 @@ const Hero: React.FC = () => {
                             </p>
 
                             <div className="flex flex-col sm:flex-row gap-4 mb-10">
-                                <button className="px-8 py-3.5 bg-button-primaryHover hover:bg-button-primaryHover text-white rounded-xl font-bold text-lg shadow-lg shadow-orange-200 dark:shadow-none transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
+                                <button className="px-8 py-3.5 bg-button-primary hover:bg-button-primaryHover text-white rounded-xl font-bold text-lg transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
                                     Find a Club <div className="w-5 h-5" />
                                 </button>
                                 <button className="px-8 py-3.5 bg-button-secondary text-white border:none hover:bg-button-secondaryHover rounded-xl font-bold text-lg transition-all flex items-center justify-center gap-2">
                                     View Events
                                 </button>
                             </div>
-
-                            <div className="flex items-center gap-6 text-sm font-medium text-text-secondary">
-                                <div className="flex items-center gap-2">
-                                    <div className="bg-orange-100 dark:bg-orange-900/40 p-2 rounded-lg text-orange-600 dark:text-orange-400">
-                                        <div className="w-5 h-5" />
-                                    </div>
-                                    <span>500+ Active Clubs</span>
-                                </div>
-                                <div className="flex items-center gap-2">
-                                    <div className="bg-slate-100 dark:bg-slate-800 p-2 rounded-lg text-slate-600 dark:text-slate-400">
-                                        <div className="w-5 h-5" />
-                                    </div>
-                                    <span>Weekly Events</span>
-                                </div>
-                            </div>
+                        
                     </div>
 
                 </div>
