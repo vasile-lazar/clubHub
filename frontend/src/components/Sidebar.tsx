@@ -83,7 +83,7 @@ const Sidebar: React.FC<SidebarProps> = ({ username = 'User', pfp, role = 'user'
 
     return (
         <div
-            className={`fixed top-0 left-0 h-screen bg-bg-secondary flex flex-col shadow-lg z-50 transition-all duration-300 ${
+            className={`fixed top-0 left-0 h-screen bg-bg-secondary flex flex-col shadow-lg z-50 transition-all duration-300 border-r-4 border-text-secondary ${
                 collapsed ? 'w-20' : 'w-64'
             }`}
         >
@@ -124,7 +124,9 @@ const Sidebar: React.FC<SidebarProps> = ({ username = 'User', pfp, role = 'user'
             </div>
 
             {/* Navigation */}
-            <nav className="flex-1 p-4 overflow-y-auto">
+            <nav className={`flex-1 p-4 ${
+                collapsed ? 'overflow-hidden' : 'overflow-y-auto'
+            }`}>
                 <Section title="Your Dashboard" collapsed={collapsed}>
                     {renderLinks(userLinks)}
                 </Section>
