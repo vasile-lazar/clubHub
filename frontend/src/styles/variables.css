@@ -22,6 +22,7 @@
     --text-secondary: #475569;         /* slate-600 */
     --text-muted: #94A3B8;             /* slate-400 */
     --text-inverse: #FFFFFF;
+    --text-warning: #fb0000;
 
     /* ========== Borders ========== */
     --border-default: #b5b7bd;

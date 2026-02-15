@@ -56,7 +56,7 @@ const AppRoutes: React.FC<AppRoutesProps> = ({ loggedInUser, setLoggedInUser }) 
             <Route
                 path="*"
                 element={
-                    <div className="text-red-500 text-center pt-40">
+                    <div className="text-text-warning text-center pt-40">
                         Pagina nu a fost găsită (404)
                     </div>
                 }
