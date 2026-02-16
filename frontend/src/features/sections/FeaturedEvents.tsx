@@ -1,6 +1,6 @@
 ﻿import EventCard from "../../components/EventCard.tsx";
-
-const EVENTS = [
+import type {Event} from "../../types/Event.ts"
+const EVENTS : Event[] = [
     {
         id: 1,
         title: "Annual Hackathon 2024",
@@ -52,10 +52,7 @@ export const FeaturedEvents = () => {
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {EVENTS.map(event => (
-                        <EventCard
-                            key={event.id}
-                            color = "bg-bg-secondary"
-                            {...event}
+                        <EventCard event={event}
                         />
                     ))}
                 </div>
