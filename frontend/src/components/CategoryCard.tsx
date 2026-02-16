@@ -1,24 +1,21 @@
-﻿import React from "react";
+﻿// CategoryCard.tsx
+import React from "react";
+import {Card} from "./Card.tsx";
 
 export interface CategoryCardProps {
     icon: React.ReactNode;
-    name: string;
-    color: string;
+    name?: string;
+    iconColor?: string;
+    bgColor?: string;
 }
 
-const CategoryCard: React.FC<CategoryCardProps> = ({icon, name, color}) => {
-    return (
-        <div className="group p-6 rounded-2xl border border-slate-100 dark:border-slate-800 hover:border-orange-100 dark:hover:border-orange-900 hover:shadow-xl dark:hover:shadow-slate-900/20 transition-all duration-300 cursor-pointer bg-white dark:bg-slate-900">
-            <div
-                className={`w-14 h-14 rounded-xl flex items-center justify-center mb-4 text-2xl ${color} group-hover:scale-110 transition-transform`}
-            >
-                {icon}
-            </div>
-            <h3 className="text-lg font-bold text-slate-900 dark:text-white">
-                {name}
-            </h3>
+const CategoryCard: React.FC<CategoryCardProps> = ({ icon, name, iconColor, bgColor }) => (
+    <Card className={`border-2 group p-6 rounded-2xl  hover:shadow-xl transition-all duration-300 cursor-pointer ${bgColor}`}>
+        <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-4 bg-bg-secondary group-hover:scale-110 transition-transform">
+            <div className={iconColor}>{icon}</div>
         </div>
-    );
-};
+        <h3 className="text-lg font-bold text-text-primary">{name}</h3>
+    </Card>
+);
 
 export default CategoryCard;

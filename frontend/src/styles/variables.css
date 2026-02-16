@@ -1,69 +1,92 @@
-﻿/* Light mode */
+﻿/* ===================================== */
+/*        PREMIUM ORANGE + WHITE         */
+/* ===================================== */
+
+/* Light Mode */
 :root {
-    /* Brand Colors */
-    --brand-blue: #24336A;        /* Deep Dark Blue (primary) */
-    --brand-blue-dark: #1A2460;   /* Rich darker blue */
-    --brand-orange: #F08C4B;      /* Warm orange accent */
-    --brand-orange-dark: #EB6711; /* Strong orange */
+    /* ========== Brand ========== */
+    --brand-orange: #F05A28;           /* vibrant, modern orange */
+    --brand-orange-hover: #D9481C;     /* deeper hover */
+    --brand-orange-soft: #FFF3ED;      /* subtle background tint */
+    --brand-blue-dark: #0e1529;
+    
+    /* ========== Backgrounds ========== */
+    --bg-primary: #FFFFFF;
+    --bg-secondary: #F8F9FA;
+    --bg-surface: #FFFFFF;
+    --bg-overlay: rgba(15, 23, 42, 0.45);
 
-    /* Background Palette */
-    --bg-primary: #E9EDF7;    /* Slightly cooler soft off-white */
-    --bg-secondary: #D8DDEB;  /* Gentle neutral, slightly darker than bg-primary */
-    --bg-surface: #FFFFFF;    /* Card / surface white */
-    --bg-overlay: rgba(0, 0, 0, 0.4);
-
-    /* Text Colors */
-    --text-primary: #1A2340;       /* Darker slate/blue-gray */
-    --text-secondary: rgba(26, 35, 64, 0.7);
+    /* ========== Text ========== */
+    --text-primary: #1E293B;           /* slate-800 */
+    --text-orange: #f1511e;
+    --text-secondary: #475569;         /* slate-600 */
+    --text-muted: #94A3B8;             /* slate-400 */
     --text-inverse: #FFFFFF;
-    --text-placeholder: rgba(26, 35, 64, 0.4);
+    --text-warning: #fb0000;
 
-    /* Borders & Shadows */
-    --border-default: rgba(26, 35, 64, 0.15);
-    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
-    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* ========== Borders ========== */
+    --border-default: #e3e5e9;
+    --border-strong: #69696c;
 
-    /* Buttons & States */
+    /* ========== Shadows (Softer + Modern) ========== */
+    --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.06);
+    --shadow-md: 0 8px 24px rgba(15, 23, 42, 0.08);
+
+    /* ========== Buttons ========== */
     --btn-primary-bg: var(--brand-orange);
-    --btn-primary-hover: #EA6B0F;
-    --btn-disabled-bg: rgba(240, 140, 75, 0.4);
+    --btn-primary-hover: var(--brand-orange-hover);
+    --btn-primary-text: #FFFFFF;
+    --btn-disabled-bg: #FED7C3;
 
-    --btn-secondary-bg: #0B1730;    /* Darker blue for secondary button */
-    --btn-secondary-hover: #08102B; /* Hover slightly darker */
+    --btn-secondary-bg: #2c3751;
+    --btn-secondary-hover: #010e23;
+    --btn-secondary-text: #e6e8fb;
 
-    /* Form & Inputs */
-    --input-border: rgba(26, 35, 64, 0.3);
+    
+    /* ========== Inputs ========== */
+    --input-bg: #FFFFFF;
+    --input-border: #CBD5E1;
     --input-focus: var(--brand-orange);
 }
+/* ===================================== */
+/*              DARK MODE                */
+/* ===================================== */
 
-/* Dark mode */
 .dark {
-    /* Background Palette */
-    --bg-primary: #0F1B2A;
-    --bg-secondary: #142444;  /* Slightly darker for contrast */
-    --bg-surface: #1C2A3B;    /* Richer card color */
+    /* Brand stays same */
+
+    /* ========== Backgrounds ========== */
+    --bg-primary: #0f172b;      /* deep slate */
+    --bg-secondary: #020618;
+    --bg-surface: #1E293B;
     --bg-overlay: rgba(0, 0, 0, 0.6);
 
-    /* Text Colors */
-    --text-primary: #E5E9F0;
-    --text-secondary: rgba(229, 233, 240, 0.8);
-    --text-inverse: #0F1B2A;
-    --text-placeholder: rgba(229, 233, 240, 0.5);
+    /* ========== Text ========== */
+    --text-primary: #F8FAFC;
+    --text-secondary: #CBD5E1;
+    --text-muted: #94A3B8;
+    --text-inverse: #0F172A;
 
-    /* Borders & Shadows */
-    --border-default: rgba(229, 233, 240, 0.15);
-    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
-    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.6);
+    /* ========== Borders ========== */
+    --border-default: #334155;
+    --border-strong: #1b2127;
 
-    /* Buttons & States */
-    --btn-primary-bg: var(--brand-orange-dark);
-    --btn-primary-hover: #F16213;
-    --btn-disabled-bg: rgba(235, 103, 17, 0.4);
+    /* ========== Shadows ========== */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.5);
 
-    --btn-secondary-bg: #1E2D4B;    /* Darker blue for dark mode secondary button */
-    --btn-secondary-hover: #334366; /* Slightly lighter on hover for feedback */
+    /* ========== Buttons ========== */
+    --btn-primary-bg: var(--brand-orange);
+    --btn-primary-hover: var(--brand-orange-hover);
+    --btn-primary-text: #FFFFFF;
+    --btn-disabled-bg: #7C2D12;
 
-    /* Form & Inputs */
-    --input-border: rgba(229, 233, 240, 0.3);
-    --input-focus: var(--brand-orange-dark);
+    --btn-secondary-bg: #334155;
+    --btn-secondary-hover: #475569;
+    --btn-secondary-text: #F8FAFC;
+
+    /* ========== Inputs ========== */
+    --input-bg: #1E293B;
+    --input-border: #475569;
+    --input-focus: var(--brand-orange);
 }

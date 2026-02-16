@@ -1,68 +1,64 @@
-﻿import { useState } from "react";
-import { Link } from "react-router-dom";
-import { SunIcon, MoonIcon } from "@heroicons/react/24/solid";
+﻿import { Link } from "react-router-dom";
+import ToggleThemeButton from "../../components/ThemeToggle.tsx";
+
 
 const Header: React.FC = () => {
-    const [theme, setTheme] = useState<"light" | "dark">("light"); // start in light mode
-
-    const toggleTheme = () => {
-        const newTheme = theme === "light" ? "dark" : "light";
-        setTheme(newTheme);
-        document.documentElement.classList.toggle("dark", newTheme === "dark"); // toggle dark class
-    };
-
+    
+    // Common class for the glass-blur hover effect
+    // Update the blurHoverClass
+    const blurHoverClass = "px-2 py-2 rounded-full transition-all duration-300 hover:bg-white/10 hover:backdrop-blur-md hover:shadow-lg active:scale-95";
+    
     return (
-        <header className="fixed w-full z-50 bg-bg-surface backdrop-blur-md border-b border-none transition-colors">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <header className="fixed top-0 w-full z-50 bg-brand-orange transition-colors border-b border-white/10">
+            <div className="text-text-inverse font-bold max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between h-16 items-center">
-                    {/* Logo */}
-                    <Link to="/" className="text-2xl font-bold text-brand-orangeDark">
-                        ClubHub
-                    </Link>
 
-                    {/* Center navigation */}
-                    <nav className="flex space-x-6">
-                        <Link to="/" className="text-text-primary hover:text-button-primaryHover transition-colors">
+                    {/* Logo + divider */}
+                    <div className="flex items-center space-x-4">
+                        <Link
+                            to="/"
+                            className="text-text-primary text-3xl font-black tracking-tighter hover:opacity-80 transition-opacity"
+                        >
+                            <span className="text-text-primary">Club</span>
+                            <span className="text-text-inverse">Hub</span>
+                        </Link>
+
+                        <div className="h-6 w-[1px] bg-white/20" />
+                    </div>
+                    
+                    {/* Center navigation with Blur Hovers */}
+                    <nav className="flex space-x-2">
+                        <Link to="/" className={blurHoverClass}>
                             Home
                         </Link>
-                        <Link to="/clubs" className="text-text-primary hover:text-button-primaryHover transition-colors">
+                        <Link to="/clubs" className={blurHoverClass}>
                             Clubs
                         </Link>
-                        <Link
-                            to="/announcements"
-                            className="text-text-primary hover:text-button-primaryHover transition-colors"
-                        >
+                        <Link to="/announcements" className={blurHoverClass}>
                             Announcements
                         </Link>
                     </nav>
 
-                    {/* Auth/Profile + Theme Toggle */}
-                    <div className="flex items-center space-x-4 relative">
+                    {/* Auth + Theme Toggle */}
+                    <div className="flex items-center space-x-3">
+
+                        {/* Theme toggle with Blur Hover */}
+                        <ToggleThemeButton/>
+                        <div className="h-6 w-[1px] bg-white/20 mx-2" />
+
                         <Link
                             to="/login"
-                            className="text-text-primary hover:text-button-primaryHover transition-colors"
+                            className="hover:text-text-primary transition-colors font-medium"
                         >
                             Log In
                         </Link>
+
                         <Link
                             to="/signup"
-                            className="text-white px-4 py-1 bg-button-secondary rounded hover:bg-button-secondaryHover transition-colors"
+                            className="px-5 py-2 bg-brand-blueDark text-white rounded-full font-bold shadow-md hover:brightness-110 hover:shadow-xl transition-all active:scale-95"
                         >
                             Sign Up
                         </Link>
-
-                        {/* Theme toggle button */}
-                        <button
-                            onClick={toggleTheme}
-                            className="p-2 rounded transition-colors"
-                            title="Toggle light/dark mode"
-                        >
-                            {theme === "light" ? (
-                                <SunIcon className="w-5 h-5 text-brand-orangeDark" />
-                            ) : (
-                                <MoonIcon className="w-5 h-5 text-text-primary" />
-                            )}
-                        </button>
                     </div>
                 </div>
             </div>

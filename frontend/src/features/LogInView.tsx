@@ -32,14 +32,14 @@ const LogIn: React.FC<LogInProps> = ({ setLoggedInUser }) => {
             {/* Home button */}
             <Link
                 to="/"
-                className="absolute top-6 right-6 z-20 bg-button-dark text-text-inverse px-4 py-2 rounded hover:bg-button-darkHover"
+                className="absolute top-6 right-6 z-20 bg-button-secondary  font-bold text-white px-4 py-2 rounded hover:bg-button-darkHover"
             >
                 Go back
             </Link>
 
             {/* Left photo */}
             <div className="hidden md:flex md:w-1/2 flex-shrink-0 relative">
-                <div className="absolute top-6 left-6 z-20 text-white text-2xl font-bold">
+                <div className="absolute top-6 left-6 z-20 text-text-primary text-2xl font-bold">
                     ClubHub
                 </div>
 
@@ -86,7 +86,7 @@ const LogIn: React.FC<LogInProps> = ({ setLoggedInUser }) => {
                                 required
                             />
                             {error && (
-                                <p className="text-sm text-red-500">
+                                <p className="text-sm text-text-warning">
                                     {error}
                                 </p>
                             )}
@@ -105,7 +105,7 @@ const LogIn: React.FC<LogInProps> = ({ setLoggedInUser }) => {
 
                             <button
                                 type="button"
-                                className="text-button-orange hover:underline"
+                                className="text-text-secondary hover:underline"
                             >
                                 Forgot Password?
                             </button>
@@ -113,7 +113,7 @@ const LogIn: React.FC<LogInProps> = ({ setLoggedInUser }) => {
 
                         <button
                             type="submit"
-                            className="w-full bg-button-orange text-text-inverse p-3 rounded hover:bg-button-orangeHover"
+                            className="w-full bg-button-primary text-text-inverse p-3 rounded hover:bg-button-orangeHover"
                         >
                             Log In
                         </button>

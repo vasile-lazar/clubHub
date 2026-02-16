@@ -15,10 +15,12 @@ module.exports = {
         text: {
           primary: 'var(--text-primary)',
           secondary: 'var(--text-secondary)',
+          orange: 'var(--text-orange)',
           inverse: 'var(--text-inverse)',
           placeholder: 'var(--text-placeholder)',
           link: 'var(--text-link)',
           linkHover: 'var(--text-link-hover)',
+          warning: 'var(--text-warning)',
         },
         button: {
           primary: 'var(--btn-primary-bg)',
@@ -26,6 +28,8 @@ module.exports = {
           primaryDisabled: 'var(--btn-disabled-bg)',
           secondary: 'var(--btn-secondary-bg)',
           secondaryHover: 'var(--btn-secondary-hover)',
+          textPrimary: 'var(--btn-primary-text)',
+          textSecondary: 'var(--btn-secondary-text)',
         },
         input: {
           border: 'var(--input-border)',
@@ -33,6 +37,7 @@ module.exports = {
         },
         border: {
           default: 'var(--border-default)',
+          strong: 'var(--border-strong)',
         },
         shadow: {
           sm: 'var(--shadow-sm)',
