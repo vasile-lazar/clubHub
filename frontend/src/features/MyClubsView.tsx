@@ -1,6 +1,7 @@
-﻿import React, { useState } from "react";
-import { Link } from "react-router-dom";
+﻿import React, { useState } from 'react';
+import type { User } from '../App';
 import clubsDataJson from "../_mock/clubinfo.json";
+
 
 export type Club = {
     id: number;
@@ -12,7 +13,10 @@ export type Club = {
 
 const clubsData: Club[] = clubsDataJson;
 
-const ClubsPage: React.FC = () => {
+interface MyClubsProps {
+    user?: User
+}
+const MyClubs: React.FC = ({user}: MyClubsProps) => {
     const [search, setSearch] = useState("");
     const [filteredClubs, setFilteredClubs] = useState<Club[]>(clubsData);
 
@@ -53,7 +57,6 @@ const ClubsPage: React.FC = () => {
                     Add New Club
                 </Link>
             </div>
-
 
 
             {/* Clubs grid */}
@@ -104,4 +107,4 @@ const ClubsPage: React.FC = () => {
     );
 };
 
-export default ClubsPage;
+export default MyClubs;
