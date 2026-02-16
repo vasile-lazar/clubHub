@@ -35,7 +35,7 @@ const RoleFeatures = () => {
         <section className="bg-bg-secondary min-h-auto py-24">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl font-bold text-text-primary  mb-4">Built for the Entire Campus</h2>
+                    <h2 className="text-3xl font-bold text-text-orange  mb-4">Built for the Entire Campus</h2>
                     <p className="text-text-secondary max-w-2xl mx-auto">
                         ClubHub connects every part of the university ecosystem, from students to administration.
                     </p>

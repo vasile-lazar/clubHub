@@ -1,8 +1,8 @@
-﻿import React from "react"
-import{
-    CalendarIcon,
-    MapPinIcon,
-}from "@heroicons/react/24/outline"
+﻿// EventCard.tsx
+import React from "react";
+import { CalendarIcon, MapPinIcon } from "@heroicons/react/24/outline";
+import { Card, CardContent } from "./Card";
+
 interface EventCardProps {
     id: number;
     title: string;
@@ -10,57 +10,72 @@ interface EventCardProps {
     date: string;
     location: string;
     image: string;
-    color: string;
+    color?: string;
 }
 
-const EventCard: React.FC<EventCardProps> = ({id, title, category, date, location, image, color}) => {
+const EventCard: React.FC<EventCardProps> = ({
+                                                 id,
+                                                 title,
+                                                 category,
+                                                 date,
+                                                 location,
+                                                 image,
+                                                 color,
+                                             }) => {
     return (
-        <div className="group bg-bg-primary  rounded-2xl overflow-hidden shadow-sm hover:shadow-lg  transition-all duration-300 border-2 border-border-default">
-            <div className="relative h-48 overflow-hidden">
+        <Card className={`overflow-hidden relative border-2 ${color}`}>
+            {/* Top Image */}
+            <div className="group relative h-48 w-full overflow-hidden border-b-2 border-border-default">
                 <img
                     src={image}
                     alt={title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="absolute top-3 left-3">
-          <span className={`px-3 py-1 rounded-full text-xs font-bold ${color} bg-bg-secondary`}>
-            {category}
-          </span>
-                </div>
+                <span
+                    className="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold bg-white/80"
+                >
+                    {category}
+                </span>
             </div>
 
-            <div className="p-5">
-                <h3 className="text-lg font-bold text-text-primary  mb-3 line-clamp-1">{title}</h3>
+            {/* Body: Title + Info */}
+            
+            <CardContent className="p-5">
+                <h3 className="text-lg font-bold text-text-primary mb-3 line-clamp-1">{title}</h3>
 
                 <div className="space-y-2">
                     <div className="flex items-center text-text-secondary text-sm">
-                        <CalendarIcon className={`w-4 h-4 mr-2 text-text-secondary`} />
+                        <CalendarIcon className="w-4 h-4 mr-2 text-text-secondary" />
                         {date}
                     </div>
                     <div className="flex items-center text-text-secondary text-sm">
-                        <MapPinIcon className={`w-4 h-4 mr-2 text-text-secondary`} />
+                        <MapPinIcon className="w-4 h-4 mr-2 text-text-secondary" />
                         {location}
                     </div>
                 </div>
 
-                <div className="mt-5 pt-4 border-t border-border-default  flex justify-between items-center">
+                {/* Footer: Attendees */}
+                <div className="mt-5 pt-4 border-t border-border-default flex justify-between items-center">
                     <div className="flex -space-x-2">
                         {[1, 2, 3].map((i) => (
                             <div
                                 key={i}
-                                className="w-6 h-6 rounded-full bg-bg-primary  border-2 border-border-default flex items-center justify-center text-[8px] text-text-secondary overflow-hidden"
+                                className="w-6 h-6 rounded-full bg-bg-primary flex items-center justify-center text-[8px] overflow-hidden"
                             >
-                                <img src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${id}-${i}`} alt="user" />
+                                <img
+                                    src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${id}-${i}`}
+                                    alt="attendee"
+                                />
                             </div>
                         ))}
                         <div className="w-6 h-6 rounded-full bg-bg-primary flex items-center justify-center text-[9px] font-bold text-text-secondary">
                             +50
                         </div>
                     </div>
-                    
                 </div>
-            </div>
-        </div>
+            </CardContent>
+        </Card>
     );
 };
+
 export default EventCard;
