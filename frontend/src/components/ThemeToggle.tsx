@@ -3,44 +3,46 @@ import { SunIcon, MoonIcon } from "@heroicons/react/24/outline";
 
 type Theme = "light" | "dark";
 
-const ThemeToggle: React.FC = () => {
+interface ToggleThemeButtonProps {
+    className?: string;
+}
+
+const ToggleThemeButton: React.FC<ToggleThemeButtonProps> = ({ className }) => {
     const [theme, setTheme] = useState<Theme>(() => {
-        // 1️⃣ Check localStorage
-        const saved = localStorage.getItem("theme") as Theme | null;
-        if (saved) return saved;
+        // Check localStorage first
+        const storedTheme = localStorage.getItem("theme") as Theme | null;
+        if (storedTheme) return storedTheme;
 
-        // 2️⃣ Check system preference
-        const prefersDark = window.matchMedia(
-            "(prefers-color-scheme: dark)"
-        ).matches;
-
+        // Fallback to system preference
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
         return prefersDark ? "dark" : "light";
     });
 
-    // Apply theme to document + save it
     useEffect(() => {
-        const isDark = theme === "dark";
-        document.documentElement.classList.toggle("dark", isDark);
+        document.documentElement.classList.toggle("dark", theme === "dark");
         localStorage.setItem("theme", theme);
     }, [theme]);
 
     const toggleTheme = () => {
-        setTheme((prev) => (prev === "light" ? "dark" : "light"));
+        setTheme(prev => (prev === "light" ? "dark" : "light"));
     };
 
     return (
         <button
             onClick={toggleTheme}
-            className="fixed top-4 right-4 z-50 p-2 rounded bg-bg-surface shadow-md hover:bg-bg-secondary transition-colors"
+            className={`p-2 rounded-full transition-all duration-300 
+                  hover:bg-white/10 hover:backdrop-blur-md 
+                  hover:shadow-lg active:scale-95 ${className}`}
             title="Toggle light/dark mode"
+            aria-label="Toggle theme"
         >
             {theme === "light" ? (
-                <SunIcon className="w-6 h-6 text-yellow-500" />
+                <MoonIcon className="w-6 h-6" />
             ) : (
-                <MoonIcon className="w-6 h-6 text-gray-200" />
+                <SunIcon className="w-6 h-6" />
             )}
         </button>
     );
 };
 
-export default ThemeToggle;
+export default ToggleThemeButton;

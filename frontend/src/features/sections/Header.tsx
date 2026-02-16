@@ -1,16 +1,9 @@
-﻿import { useState } from "react";
-import { Link } from "react-router-dom";
-import { SunIcon, MoonIcon } from "@heroicons/react/24/outline";
+﻿import { Link } from "react-router-dom";
+import ToggleThemeButton from "../../components/ThemeToggle.tsx";
+
 
 const Header: React.FC = () => {
-    const [theme, setTheme] = useState<"light" | "dark">("light");
-
-    const toggleTheme = () => {
-        const newTheme = theme === "light" ? "dark" : "light";
-        setTheme(newTheme);
-        document.documentElement.classList.toggle("dark", newTheme === "dark");
-    };
-
+    
     // Common class for the glass-blur hover effect
     // Update the blurHoverClass
     const blurHoverClass = "px-2 py-2 rounded-full transition-all duration-300 hover:bg-white/10 hover:backdrop-blur-md hover:shadow-lg active:scale-95";
@@ -24,7 +17,7 @@ const Header: React.FC = () => {
                     <div className="flex items-center space-x-4">
                         <Link
                             to="/"
-                            className="text-text-primary text-2xl font-black tracking-tighter hover:opacity-80 transition-opacity"
+                            className="text-text-primary text-3xl font-black tracking-tighter hover:opacity-80 transition-opacity"
                         >
                             <span className="text-text-primary">Club</span>
                             <span className="text-text-inverse">Hub</span>
@@ -50,18 +43,7 @@ const Header: React.FC = () => {
                     <div className="flex items-center space-x-3">
 
                         {/* Theme toggle with Blur Hover */}
-                        <button
-                            onClick={toggleTheme}
-                            className={`${blurHoverClass} p-2 rounded-full font-bold text-text-primary`}
-                            title="Toggle light/dark mode"
-                        >
-                            {theme === "light" ? (
-                                <MoonIcon className="w-6 h-6" />
-                            ) : (
-                                <SunIcon className="w-6 h-6" />
-                            )}
-                        </button>
-
+                        <ToggleThemeButton/>
                         <div className="h-6 w-[1px] bg-white/20 mx-2" />
 
                         <Link

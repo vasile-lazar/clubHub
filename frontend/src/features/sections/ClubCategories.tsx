@@ -30,7 +30,7 @@ const ClubCategories = () => {
         <section className="bg-bg-secondary py-20 transition-colors duration-300">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl font-bold text-text-primary mb-4">Explore Clubs</h2>
+                    <h2 className="text-3xl font-bold text-text-orange mb-4">Explore Clubs</h2>
                     <p className="text-text-secondary max-w-3xl mx-auto">
                         Whether you're into coding, painting, or playing basketball, there's a community waiting for you.
                     </p>
@@ -43,8 +43,8 @@ const ClubCategories = () => {
                             <CategoryCard
                                 key={category.id}
                                 name={category.name}
-                                bgColor="bg-bg-surface"
-                                color={category.color}
+                                bgColor="bg-bg-primary"
+                                iconColor={category.color}
                                 icon={<Icon className="w-8 h-8" />} // render as JSX
                             />
                         );
