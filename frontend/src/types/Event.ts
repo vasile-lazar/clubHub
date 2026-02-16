@@ -1,4 +1,4 @@
-export type Event = {
+export interface Event {
     id: number;
     title: string;
     category: string;
@@ -6,4 +6,4 @@ export type Event = {
     location: string;
     image: string;
     color?: string;
-};
+}
