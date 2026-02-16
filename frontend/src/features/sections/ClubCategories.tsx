@@ -1,4 +1,4 @@
-﻿import CategoryCard from "../../components/CategoryCard.tsx";
+import CategoryCard from "../../components/CategoryCard.tsx";
 import {
     BookOpenIcon,
     PaintBrushIcon,
@@ -11,14 +11,14 @@ import {
 } from "@heroicons/react/24/outline";
 
 const CATEGORIES = [
-    { id: 1, name: 'Academic', icon: BookOpenIcon, color: 'text-blue-600' },
-    { id: 2, name: 'Sports', icon: TrophyIcon, color: 'text-orange-600' },
-    { id: 3, name: 'Arts & Culture', icon: PaintBrushIcon, color: 'text-pink-600' },
-    { id: 4, name: 'Technology', icon: CodeBracketIcon, color: 'text-violet-600' },
-    { id: 5, name: 'Social', icon: ChatBubbleOvalLeftIcon, color: 'text-green-600' },
-    { id: 6, name: 'Career', icon: BriefcaseIcon, color: 'text-purple-600' },
-    { id: 7, name: 'Music', icon: MusicalNoteIcon, color: 'text-red-600' },
-    { id: 8, name: 'Global', icon: GlobeAltIcon, color: 'text-cyan-600' },
+    { id: 1, name: 'Academic', icon: BookOpenIcon, color: 'text-stat-blue' },
+    { id: 2, name: 'Sports', icon: TrophyIcon, color: 'text-brand-orange' },
+    { id: 3, name: 'Arts & Culture', icon: PaintBrushIcon, color: 'text-admin-accent' },
+    { id: 4, name: 'Technology', icon: CodeBracketIcon, color: 'text-admin-accent' },
+    { id: 5, name: 'Social', icon: ChatBubbleOvalLeftIcon, color: 'text-stat-green' },
+    { id: 6, name: 'Career', icon: BriefcaseIcon, color: 'text-admin-accent' },
+    { id: 7, name: 'Music', icon: MusicalNoteIcon, color: 'text-stat-amber' },
+    { id: 8, name: 'Global', icon: GlobeAltIcon, color: 'text-stat-blue' },
 ];
 
 

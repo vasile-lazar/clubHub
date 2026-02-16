@@ -1,5 +1,5 @@
-﻿import EventCard from "../../components/EventCard.tsx";
-import type {Event} from "../../types/Event.ts"
+import EventCard from "../../components/EventCard.tsx";
+import type { Event } from "../../types";
 const EVENTS : Event[] = [
     {
         id: 1,

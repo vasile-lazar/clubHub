@@ -12,21 +12,21 @@ const ROLES = [
         description: "Discover your passion and build your network.",
         features: ["Browse 100+ active clubs", "One-click event RSVP", "Track extracurricular transcript"],
         icon: AcademicCapIcon,
-        borderColor: "border-orange-400",
+        borderColor: "border-brand-orange",
     },
     {
         title: "For Organizers",
         description: "Powerful tools to lead and grow your community.",
         features: ["Easy event scheduling", "Real-time attendance tracking", "Member communication tools"],
         icon: CalendarIcon,
-        borderColor: "border-green-500",
+        borderColor: "border-stat-green",
     },
     {
         title: "For Admins",
         description: "Oversight and insights for the entire institution.",
         features: ["Campus-wide analytics", "Safety & compliance workflows", "Grant & funding management"],
         icon: ShieldCheckIcon,
-        borderColor: "border-blue-200",
+        borderColor: "border-stat-blue",
     }
 ];
 

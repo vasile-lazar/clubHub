@@ -1,6 +1,6 @@
-﻿// RoleCard.tsx
+// RoleCard.tsx
 import React from "react";
-import {Card, CardContent,CardHeader} from "./Card.tsx";
+import { Card, CardContent, CardHeader } from "./ui/Card";
 
 export interface RoleCardProps {
     title: string;

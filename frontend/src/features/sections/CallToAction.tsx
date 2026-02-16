@@ -1,4 +1,6 @@
-﻿import ctaBG from "../../assets/images/call_to_action_bgImg.png";
+import { Link } from "react-router-dom";
+import ctaBG from "../../assets/images/call_to_action_bgImg.png";
+import { ROUTES } from "../../routes/routes";
 
 const CallToAction = () => {
     return (
@@ -25,13 +27,19 @@ const CallToAction = () => {
                 </p>
 
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <button className="px-8 py-4 bg-button-primary hover:bg-button-primaryHover text-button-textPrimary rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 w-full sm:w-auto flex items-center justify-center">
+                    <Link
+                        to={ROUTES.register}
+                        className="px-8 py-4 bg-button-primary hover:bg-button-primaryHover text-button-textPrimary rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 w-full sm:w-auto flex items-center justify-center"
+                    >
                         Get Started
                         <span className="ml-2">→</span>
-                    </button>
-                    <button className="px-8 py-4 bg-button-secondary text-button-textSecondary hover:bg-button-secondary-hover rounded-xl font-bold text-lg transition-all duration-300 w-full sm:w-auto">
+                    </Link>
+                    <Link
+                        to={ROUTES.landing}
+                        className="px-8 py-4 bg-button-secondary text-button-textSecondary hover:bg-button-secondaryHover rounded-xl font-bold text-lg transition-all duration-300 w-full sm:w-auto text-center"
+                    >
                         Read Guidelines
-                    </button>
+                    </Link>
                 </div>
             </div>
         </section>
