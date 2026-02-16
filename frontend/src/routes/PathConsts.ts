@@ -5,5 +5,6 @@
     homelogged: '/home-logged',
     profile: '/profile',
     clubs: '/clubs',
-    events: '/events'
+    events: '/events',
+    myclubs: '/myclubs'
 }

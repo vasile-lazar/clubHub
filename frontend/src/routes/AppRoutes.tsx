@@ -10,6 +10,7 @@ import SignUp from '../pages/SignUp';
 import MyProfile from '../pages/MyProfile';
 import Clubs from '../pages/Clubs';
 import Events from '../pages/Events';
+import MyClubs from "../pages/MyClubs.tsx";
 
 import {PathConsts} from "./PathConsts.ts";
 import type { User } from '../types/User.ts';
@@ -36,6 +37,7 @@ const AppRoutes: React.FC<AppRoutesProps> = ({ loggedInUser, setLoggedInUser }) 
                         element={<LoggedInLayout user={loggedInUser!} setUser={setLoggedInUser} />}
                     >
                         <Route path={PathConsts.homelogged} element={<HomeLogged />} />
+                        <Route path={PathConsts.myclubs} element={<MyClubs user={loggedInUser!} setUser={setLoggedInUser} />}/>
                         <Route
                             path={PathConsts.profile}
                             element={<MyProfile user={loggedInUser!} setUser={setLoggedInUser} />}
