@@ -1,4 +1,5 @@
 ﻿import React from "react";
+import {Button} from "../../components/Button.tsx";
 
 const Hero: React.FC = () => {
     return (
@@ -18,12 +19,12 @@ const Hero: React.FC = () => {
                             </p>
 
                             <div className="flex flex-col sm:flex-row gap-4 mb-10">
-                                <button className="px-8 py-3.5 bg-button-primary hover:bg-button-primaryHover text-white rounded-xl font-bold text-lg transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
-                                    Find a Club <div className="w-5 h-5" />
-                                </button>
-                                <button className="px-8 py-3.5 bg-button-secondary text-white border:none hover:bg-button-secondaryHover rounded-xl font-bold text-lg transition-all flex items-center justify-center gap-2">
+                                <Button  variant = "primary" size="md" type="internal" to={"/clubs"}>
+                                    Find a Club
+                                </Button>
+                                <Button  variant = "secondary" size="md" type="internal" to={"/events"}>
                                     View Events
-                                </button>
+                                </Button>
                             </div>
                         
                     </div>
