@@ -1,7 +1,6 @@
 import {useState} from 'react';
 import {BrowserRouter as Router} from 'react-router-dom';
 import AppRoutes from './routes/AppRoutes';
-import ThemeToggle from "./components/ThemeToggle.tsx";
 
 export interface User {
     username: string;
@@ -15,7 +14,6 @@ function App() {
 
     return (
         <>
-            <ThemeToggle/>
             <Router>
                 <AppRoutes loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>
             </Router>

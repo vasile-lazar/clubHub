@@ -1,6 +1,7 @@
 ﻿import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import type { User } from '../App';
+import ToggleThemeButton from "./ThemeToggle.tsx";
 
 import {
     HomeIcon,
@@ -83,7 +84,7 @@ const Sidebar: React.FC<SidebarProps> = ({ username = 'User', pfp, role = 'user'
 
     return (
         <div
-            className={`fixed top-0 left-0 h-screen bg-bg-secondary flex flex-col shadow-lg z-50 transition-all duration-300 border-r-4 border-text-secondary ${
+            className={`sticky top-0 left-0 h-screen bg-bg-primary flex flex-col shadow-lg z-50 transition-all duration-300 border-r-4 border-text-secondary ${
                 collapsed ? 'w-20' : 'w-64'
             }`}
         >
@@ -121,6 +122,9 @@ const Sidebar: React.FC<SidebarProps> = ({ username = 'User', pfp, role = 'user'
                         <p className="text-text-secondary text-sm">{role === 'admin' ? 'Admin' : 'Student'}</p>
                     </div>
                 )}
+                <div className={`absolute right-0 mr-4 ${collapsed ? 'hidden' : ''}`}>
+                <ToggleThemeButton className="text-text-primary"/>
+                </div>  
             </div>
 
             {/* Navigation */}
