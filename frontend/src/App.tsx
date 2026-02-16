@@ -1,13 +1,18 @@
-import {useState} from 'react';
-import AppRoutes from './routes/AppRoutes';
-import type {User} from './types/User.ts'
+import { AuthProvider } from './context/AuthContext';
+import { ToastProvider } from './context/ToastContext';
+import { LoadingProvider } from './context/LoadingContext';
+import { AppRoutes } from './routes/AppRoutes';
 
 function App() {
-    const [loggedInUser, setLoggedInUser] = useState<User | null>(null);
-
-    return (
-        <AppRoutes loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>
-    );
+  return (
+    <AuthProvider>
+      <ToastProvider>
+        <LoadingProvider>
+          <AppRoutes />
+        </LoadingProvider>
+      </ToastProvider>
+    </AuthProvider>
+  );
 }
 
 export default App;

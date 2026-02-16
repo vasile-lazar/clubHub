@@ -1,4 +1,4 @@
-﻿/* ===================================== */
+/* ===================================== */
 /*        PREMIUM ORANGE + WHITE         */
 /* ===================================== */
 
@@ -47,6 +47,25 @@
     --input-bg: #FFFFFF;
     --input-border: #CBD5E1;
     --input-focus: var(--brand-orange);
+
+    /* ========== Semantic ========== */
+    --toast-success: #059669;
+    --toast-success-border: #047857;
+    --toast-error: #DC2626;
+    --toast-error-border: #B91C1C;
+    --toast-warning: #D97706;
+    --toast-warning-border: #B45309;
+    --toast-info: #2563EB;
+    --toast-info-border: #1D4ED8;
+    --input-error: #DC2626;
+    --danger-bg: #DC2626;
+    --danger-hover: #B91C1C;
+    --admin-accent: #7C3AED;
+    --admin-accent-light: #EDE9FE;
+    --admin-accent-border: #A78BFA;
+    --stat-blue: #2563EB;
+    --stat-green: #059669;
+    --stat-amber: #D97706;
 }
 /* ===================================== */
 /*              DARK MODE                */
@@ -89,4 +108,23 @@
     --input-bg: #1E293B;
     --input-border: #475569;
     --input-focus: var(--brand-orange);
+
+    /* ========== Semantic ========== */
+    --toast-success: #10B981;
+    --toast-success-border: #059669;
+    --toast-error: #EF4444;
+    --toast-error-border: #DC2626;
+    --toast-warning: #F59E0B;
+    --toast-warning-border: #D97706;
+    --toast-info: #3B82F6;
+    --toast-info-border: #2563EB;
+    --input-error: #EF4444;
+    --danger-bg: #DC2626;
+    --danger-hover: #B91C1C;
+    --admin-accent: #8B5CF6;
+    --admin-accent-light: #4C1D95;
+    --admin-accent-border: #6D28D9;
+    --stat-blue: #3B82F6;
+    --stat-green: #10B981;
+    --stat-amber: #F59E0B;
 }

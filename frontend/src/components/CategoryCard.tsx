@@ -1,6 +1,6 @@
-﻿// CategoryCard.tsx
+// CategoryCard.tsx
 import React from "react";
-import {Card} from "./Card.tsx";
+import { Card } from "./ui/Card";
 
 export interface CategoryCardProps {
     icon: React.ReactNode;

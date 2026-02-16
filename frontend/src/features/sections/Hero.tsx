@@ -1,5 +1,6 @@
-﻿import React from "react";
-import {Button} from "../../components/Button.tsx";
+import React from "react";
+import {Button} from "../../components/ui/Button";
+import {ROUTES} from "../../routes/routes";
 
 const Hero: React.FC = () => {
     return (
@@ -9,24 +10,25 @@ const Hero: React.FC = () => {
 
                     {/* Left: Content */}
                     <div className="max-w-2xl py-12 lg:py-0 relative z-10">
-                            <h1 className="text-5xl lg:text-6xl font-extrabold text-text-primary  tracking-tight mb-6 leading-[1.15]">
-                                Discover Your <br/>
-                                <span className="text-text-orange">Campus Community</span>
-                            </h1>
+                        <h1 className="text-5xl lg:text-6xl font-extrabold text-text-primary  tracking-tight mb-6 leading-[1.15]">
+                            Discover Your <br/>
+                            <span className="text-text-orange">Campus Community</span>
+                        </h1>
 
-                            <p className="text-lg text-text-secondary mb-8 leading-relaxed max-w-lg">
-                                Join over 12,000 students using Club Hub to find events, join organizations, and make the most of university life.
-                            </p>
+                        <p className="text-lg text-text-secondary mb-8 leading-relaxed max-w-lg">
+                            Join over 12,000 students using Club Hub to find events, join organizations, and make the
+                            most of university life.
+                        </p>
 
-                            <div className="flex flex-col sm:flex-row gap-4 mb-10">
-                                <Button  variant = "primary" size="md" type="internal" to={"/clubs"}>
-                                    Find a Club
-                                </Button>
-                                <Button  variant = "secondary" size="md" type="internal" to={"/events"}>
-                                    View Events
-                                </Button>
-                            </div>
-                        
+                        <div className="flex flex-col sm:flex-row gap-4 mb-10">
+                            <Button variant="primary" size="md" type="internal" to={ROUTES.clubs}>
+                                Find a Club
+                            </Button>
+                            <Button variant="secondary" size="md" type="internal" to={ROUTES.events}>
+                                View Events
+                            </Button>
+                        </div>
+
                     </div>
 
                 </div>
@@ -42,7 +44,8 @@ const Hero: React.FC = () => {
                     />
 
                     {/* Overlay Gradient to blend with white background */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-bg-primary via-bg-secondary/30 to-transparent transition-colors duration-500" />
+                    <div
+                        className="absolute inset-0 bg-gradient-to-r from-bg-primary via-bg-secondary/30 to-transparent transition-colors duration-500"/>
                 </div>
             </div>
         </section>

@@ -1,4 +1,4 @@
-﻿import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { SunIcon, MoonIcon } from "@heroicons/react/24/outline";
 
 type Theme = "light" | "dark";
@@ -31,8 +31,7 @@ const ToggleThemeButton: React.FC<ToggleThemeButtonProps> = ({ className }) => {
         <button
             onClick={toggleTheme}
             className={`p-2 rounded-full transition-all duration-300 
-                  hover:bg-white/10 hover:backdrop-blur-md 
-                  hover:shadow-lg active:scale-95 ${className}`}
+                  hover:opacity-80 active:scale-95 [&>svg]:w-6 [&>svg]:h-6 ${className ?? ''}`}
             title="Toggle light/dark mode"
             aria-label="Toggle theme"
         >

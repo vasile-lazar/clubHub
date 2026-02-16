@@ -1,64 +1,77 @@
 import React from 'react';
-import { Routes, Route, BrowserRouter as Router } from 'react-router-dom';
-import GuestLayout from '../layouts/GuestLayout';
-import LoggedInLayout from '../layouts/LoggedInLayout';
-import ProtectedRoute from './ProtectedRoute';
-import Home from '../pages/Home';
-import HomeLogged from '../pages/HomeLogged';
-import LogIn from '../pages/LogIn';
-import SignUp from '../pages/SignUp';
-import MyProfile from '../pages/MyProfile';
-import Clubs from '../pages/Clubs';
-import Events from '../pages/Events';
-import MyClubs from "../pages/MyClubs.tsx";
+import { Routes, Route, BrowserRouter, Navigate } from 'react-router-dom';
+import { GuestLayout } from '../layouts/GuestLayout';
+import { AuthLayout } from '../layouts/AuthLayout';
+import { UserLayout } from '../layouts/UserLayout';
+import { AdminLayout } from '../layouts/AdminLayout';
+import { RequireAuth } from './RequireAuth';
+import { RequireRole } from './RequireRole';
+import { ROUTES } from './routes';
 
-import {PathConsts} from "./PathConsts.ts";
-import type { User } from '../types/User.ts';
+import { Landing } from '../pages/guest/Landing';
+import { Login } from '../pages/guest/Login';
+import { Register } from '../pages/guest/Register';
 
-interface AppRoutesProps {
-    loggedInUser: User | null;
-    setLoggedInUser: React.Dispatch<React.SetStateAction<User | null>>;
-}
+import { Dashboard } from '../pages/user/Dashboard';
+import { Profile } from '../pages/user/Profile';
+import { Clubs } from '../pages/user/Clubs';
+import { Events } from '../pages/user/Events';
+import { MyClubs } from '../pages/user/MyClubs';
 
-const AppRoutes: React.FC<AppRoutesProps> = ({ loggedInUser, setLoggedInUser }) => {
-    return (
-        <Router>
-            <Routes>
-                {/* Guest Layout */}
-                <Route element={<GuestLayout />}>
-                    <Route path={PathConsts.landing} element={<Home />} />
-                    <Route path={PathConsts.login} element={<LogIn setLoggedInUser={setLoggedInUser} />} />
-                    <Route path={PathConsts.signup} element={<SignUp />} />
-                </Route>
+import { AdminDashboard } from '../pages/admin/AdminDashboard';
+import { UserManagement } from '../pages/admin/UserManagement';
+import { Settings } from '../pages/admin/Settings';
 
-                {/* Protected Routes */}
-                <Route element={<ProtectedRoute user={loggedInUser} />}>
-                    <Route
-                        element={<LoggedInLayout user={loggedInUser!} setUser={setLoggedInUser} />}
-                    >
-                        <Route path={PathConsts.homelogged} element={<HomeLogged />} />
-                        <Route path={PathConsts.myclubs} element={<MyClubs user={loggedInUser!} setUser={setLoggedInUser} />}/>
-                        <Route
-                            path={PathConsts.profile}
-                            element={<MyProfile user={loggedInUser!} setUser={setLoggedInUser} />}
-                        />
-                        <Route path={PathConsts.clubs} element={<Clubs />} />
-                        <Route path={PathConsts.events} element={<Events />} />
-                    </Route>
-                </Route>
+import { NotFound } from '../pages/NotFound';
+import { Forbidden } from '../pages/Forbidden';
 
-                {/* Catch-all 404 */}
-                <Route
-                    path="*"
-                    element={
-                        <div className="text-text-warning text-center pt-40">
-                            Pagina nu a fost găsită (404)
-                        </div>
-                    }
-                />
-            </Routes>
-        </Router>
-    );
-};
+export const AppRoutes: React.FC = () => (
+  <BrowserRouter>
+    <Routes>
+      <Route path={ROUTES.landing} element={<GuestLayout />}>
+        <Route index element={<Landing />} />
+      </Route>
 
-export default AppRoutes;
+      <Route element={<AuthLayout />}>
+        <Route path={ROUTES.login} element={<Login />} />
+        <Route path={ROUTES.register} element={<Register />} />
+      </Route>
+
+      <Route
+        element={
+          <RequireAuth>
+            <UserLayout />
+          </RequireAuth>
+        }
+      >
+        <Route path={ROUTES.dashboard} element={<Dashboard />} />
+        <Route path={ROUTES.profile} element={<Profile />} />
+        <Route path={ROUTES.clubs} element={<Clubs />} />
+        <Route path={ROUTES.events} element={<Events />} />
+        <Route path={ROUTES.myClubs} element={<MyClubs />} />
+      </Route>
+
+      <Route
+        element={
+          <RequireAuth>
+            <RequireRole allowedRoles={['admin']}>
+              <AdminLayout />
+            </RequireRole>
+          </RequireAuth>
+        }
+      >
+        <Route path={ROUTES.admin} element={<AdminDashboard />} />
+        <Route path={ROUTES.adminUsers} element={<UserManagement />} />
+        <Route path={ROUTES.adminSettings} element={<Settings />} />
+      </Route>
+
+      <Route path={ROUTES.forbidden} element={<Forbidden />} />
+      <Route path={ROUTES.notFound} element={<NotFound />} />
+
+      <Route path="/home-logged" element={<Navigate to={ROUTES.dashboard} replace />} />
+      <Route path="/signup" element={<Navigate to={ROUTES.register} replace />} />
+
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+  </BrowserRouter>
+);
