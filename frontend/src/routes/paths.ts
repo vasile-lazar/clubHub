@@ -18,6 +18,7 @@ export const PATHS = {
     root: '/admin',
     dashboard: '/admin',
     users: '/admin/users',
+    clubs: '/admin/clubs',
     settings: '/admin/settings',
   },
 } as const;
