@@ -136,7 +136,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
             </div>
 
             {/* Collapse button: inline when expanded, slightly outside when collapsed */}
-            {onToggleCollapse && isAdmin && (
+            
                 <button
                     onClick={onToggleCollapse}
                     className={`
@@ -159,7 +159,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                       <ChevronLeftIcon className="h-4 w-4" />
                   )}
                 </button>
-            )}
+            
           </div>
 
           {/* -------- Navigation -------- */}
