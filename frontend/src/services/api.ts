@@ -1,4 +1,5 @@
-import axios, { AxiosError } from 'axios';
+import axios from 'axios';
+import type { AxiosError, InternalAxiosRequestConfig } from 'axios';
 
 const AUTH_TOKEN_KEY = 'clubhub_token';
 const AUTH_USER_KEY = 'clubhub_user';
@@ -26,17 +27,17 @@ export const api = axios.create({
 });
 
 api.interceptors.request.use(
-  (config) => {
+  (config: InternalAxiosRequestConfig) => {
     const token = getStoredToken();
     if (token) config.headers.Authorization = `Bearer ${token}`;
     return config;
   },
-  (error) => Promise.reject(error)
+  (error: unknown) => Promise.reject(error)
 );
 
 api.interceptors.response.use(
   (response) => response,
-  (error: AxiosError) => {
+  (error: AxiosError<{ message?: string }>) => {
     const status = error.response?.status;
     const message =
       (error.response?.data as { message?: string })?.message ?? 'Something went wrong';
