@@ -1,8 +1,8 @@
 import { useState, useMemo } from 'react';
+import type { Club } from '../types';
 import {
   applyClubsFilters,
   getCategoriesFromClubs,
-  type Club,
   type ClubsSortOption,
   type FilterOption,
 } from '../utils/clubSearchFilter';

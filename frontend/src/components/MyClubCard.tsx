@@ -145,7 +145,7 @@ export const MyClubCard: React.FC<MyClubCardProps> = ({ club, onLeave }) => {
             <ArrowRightIcon className="h-4 w-4" />
           </Link>
           {onLeave && (
-            <Button variant="secondary" size="sm" onClick={() => onLeave(club.id)}>
+            <Button variant="secondary" size="sm" onClick={() => onLeave(String(club.id))}>
               <XMarkIcon className="h-4 w-4" />
               Leave
             </Button>
