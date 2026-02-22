@@ -20,6 +20,7 @@ import { MyClubs } from '../pages/user/MyClubs';
 import { AdminDashboard } from '../pages/admin/AdminDashboard';
 import { UserManagement } from '../pages/admin/UserManagement';
 import {ClubsManagement} from '../pages/admin/ClubsManagement'
+import {EventsManagement} from '../pages/admin/EventsManagement'
 import { Settings } from '../pages/admin/Settings';
 
 import { NotFound } from '../pages/NotFound';
@@ -69,6 +70,7 @@ const router = createBrowserRouter([
           { path: PATHS.admin.dashboard, element: <AdminDashboard /> },
           { path: PATHS.admin.users, element: <UserManagement /> },
           { path: PATHS.admin.clubs, element: <ClubsManagement /> },
+          { path: PATHS.admin.events, element: <EventsManagement /> },
           { path: PATHS.admin.settings, element: <Settings /> },
         ],
       },
