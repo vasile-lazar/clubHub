@@ -18,11 +18,31 @@ export interface AuthState {
 
 // ========== Club ==========
 export interface Club {
-  id: number;
+  id: number | string;
   name: string;
   description: string;
   members: number;
   imageUrl?: string;
+  category?: string;
+  isActive?: boolean;
+}
+
+/** Extended club data for "My Clubs" cards (role, next event, stats, badges) */
+export interface MyClubCardData extends Club {
+  userRole?: 'Member' | 'Lead' | 'Admin';
+  nextEvent?: {
+    title: string;
+    date: string;
+    time?: string;
+  };
+  stats?: {
+    eventsAttended: number;
+    attendanceRate: number;
+    contributionPoints: number;
+    certificates: number;
+  };
+  badges?: string[];
+  joinedDate?: string;
 }
 
 // ========== Event ==========

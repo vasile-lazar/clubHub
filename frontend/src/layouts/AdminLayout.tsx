@@ -1,21 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Outlet } from 'react-router-dom';
-import { useAuth } from '../hooks';
-import { AdminSidebar } from '../components/navigation/AdminSidebar';
+import { useAuth } from '../hooks/useAuth';
+import { Sidebar } from '../components/navigation/Sidebar';
+
 
 export const AdminLayout: React.FC = () => {
-  const { user } = useAuth();
+    const { user } = useAuth();
+    const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
 
-  if (!user) return null;
+    if (!user) return null;
 
-  return (
-    <div className="flex min-h-screen bg-bg-secondary">
-      <AdminSidebar user={user} />
-      <main className="flex-1 overflow-auto min-h-screen lg:ml-64">
-        <div className="p-4 lg:p-6 border-l-2 border-admin-accentBorder/50">
-          <Outlet />
+    return (
+        <div className="flex min-h-screen bg-bg-secondary">
+            <Sidebar
+                user={user}
+                isCollapsed={isSidebarCollapsed}
+                onToggleCollapse={() => setIsSidebarCollapsed(prev => !prev)}
+            />
+            <main
+                className={`flex-1 overflow-auto min-h-screen transition-[margin] duration-300 ease-in-out ${
+                    isSidebarCollapsed ? 'lg:ml-20' : 'lg:ml-64'
+                }`}
+            >
+                <div className="p-4 lg:p-6 border-l-1">
+                    <Outlet />
+                </div>
+            </main>
         </div>
-      </main>
-    </div>
-  );
+    );
 };
