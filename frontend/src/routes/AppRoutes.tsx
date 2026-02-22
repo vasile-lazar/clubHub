@@ -1,12 +1,10 @@
-import React from 'react';
-import { Routes, Route, BrowserRouter, Navigate } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { GuestLayout } from '../layouts/GuestLayout';
 import { AuthLayout } from '../layouts/AuthLayout';
 import { UserLayout } from '../layouts/UserLayout';
 import { AdminLayout } from '../layouts/AdminLayout';
-import { RequireAuth } from './RequireAuth';
-import { RequireRole } from './RequireRole';
-import { ROUTES } from './routes';
+import { Guard } from './Guard';
+import { PATHS } from './paths';
 
 import { Landing } from '../pages/guest/Landing';
 import { Login } from '../pages/guest/Login';
@@ -25,53 +23,55 @@ import { Settings } from '../pages/admin/Settings';
 import { NotFound } from '../pages/NotFound';
 import { Forbidden } from '../pages/Forbidden';
 
-export const AppRoutes: React.FC = () => (
-  <BrowserRouter>
-    <Routes>
-      <Route path={ROUTES.landing} element={<GuestLayout />}>
-        <Route index element={<Landing />} />
-      </Route>
+const router = createBrowserRouter([
+  {
+    element: <GuestLayout />,
+    children: [
+      { path: PATHS.public.home, element: <Landing /> },
+    ],
+  },
+  {
+    element: <Guard publicOnly />,
+    children: [
+      {
+        element: <AuthLayout />,
+        children: [
+          { path: PATHS.public.login, element: <Login /> },
+          { path: PATHS.public.register, element: <Register /> },
+        ],
+      },
+    ],
+  },
+  {
+    element: <Guard requireAuth />,
+    children: [
+      {
+        element: <UserLayout />,
+        children: [
+          { path: PATHS.app.dashboard, element: <Dashboard /> },
+          { path: PATHS.app.profile, element: <Profile /> },
+          { path: PATHS.app.clubs, element: <Clubs /> },
+          { path: PATHS.app.events, element: <Events /> },
+          { path: PATHS.app.myClubs, element: <MyClubs /> },
+        ],
+      },
+    ],
+  },
+  {
+    element: <Guard requireAuth allowedRoles={['admin']} />,
+    children: [
+      {
+        element: <AdminLayout />,
+        children: [
+          { path: PATHS.admin.dashboard, element: <AdminDashboard /> },
+          { path: PATHS.admin.users, element: <UserManagement /> },
+          { path: PATHS.admin.settings, element: <Settings /> },
+        ],
+      },
+    ],
+  },
+  { path: PATHS.public.forbidden, element: <Forbidden /> },
+  { path: '*', element: <NotFound /> },
+]);
 
-      <Route element={<AuthLayout />}>
-        <Route path={ROUTES.login} element={<Login />} />
-        <Route path={ROUTES.register} element={<Register />} />
-      </Route>
-
-      <Route
-        element={
-          <RequireAuth>
-            <UserLayout />
-          </RequireAuth>
-        }
-      >
-        <Route path={ROUTES.dashboard} element={<Dashboard />} />
-        <Route path={ROUTES.profile} element={<Profile />} />
-        <Route path={ROUTES.clubs} element={<Clubs />} />
-        <Route path={ROUTES.events} element={<Events />} />
-        <Route path={ROUTES.myClubs} element={<MyClubs />} />
-      </Route>
-
-      <Route
-        element={
-          <RequireAuth>
-            <RequireRole allowedRoles={['admin']}>
-              <AdminLayout />
-            </RequireRole>
-          </RequireAuth>
-        }
-      >
-        <Route path={ROUTES.admin} element={<AdminDashboard />} />
-        <Route path={ROUTES.adminUsers} element={<UserManagement />} />
-        <Route path={ROUTES.adminSettings} element={<Settings />} />
-      </Route>
-
-      <Route path={ROUTES.forbidden} element={<Forbidden />} />
-      <Route path={ROUTES.notFound} element={<NotFound />} />
-
-      <Route path="/home-logged" element={<Navigate to={ROUTES.dashboard} replace />} />
-      <Route path="/signup" element={<Navigate to={ROUTES.register} replace />} />
-
-      <Route path="*" element={<NotFound />} />
-    </Routes>
-  </BrowserRouter>
-);
+export const AppRoutes = () => <RouterProvider router={router} />;
