@@ -9,6 +9,7 @@ import {
     Bars3Icon,
     XMarkIcon,
     GlobeEuropeAfricaIcon,
+    CalendarDaysIcon,
 } from '@heroicons/react/24/outline';
 import { useAuth } from '../../hooks';
 import { useToggle } from '../../hooks';
@@ -25,7 +26,7 @@ const adminNavItems: NavItem[] = [
     { to: PATHS.admin.root, label: 'Admin Dashboard', icon: ShieldCheckIcon },
     { to: PATHS.admin.users, label: 'Manage Users', icon: UserGroupIcon },
     { to: PATHS.admin.clubs, label: 'Manage Clubs', icon: GlobeEuropeAfricaIcon },
-    { to: PATHS.admin.events, label: 'Manage Events', icon: Cog6ToothIcon },
+    { to: PATHS.admin.events, label: 'Manage Events', icon: CalendarDaysIcon },
     { to: PATHS.admin.settings, label: 'Settings', icon: Cog6ToothIcon },
 ];
 
