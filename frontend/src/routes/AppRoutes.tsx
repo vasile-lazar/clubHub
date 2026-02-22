@@ -11,7 +11,7 @@ import { Login } from '../pages/guest/Login';
 import { Register } from '../pages/guest/Register';
 
 import { Dashboard } from '../pages/user/Dashboard';
-import { Profile } from '../pages/user/Profile';
+import Profile from '../pages/user/Profile';
 import { Clubs } from '../pages/user/Clubs';
 
 import { Events } from '../pages/user/Events';
