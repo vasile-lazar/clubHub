@@ -8,6 +8,7 @@ import {
     ArrowLeftEndOnRectangleIcon,
     Bars3Icon,
     XMarkIcon,
+    GlobeEuropeAfricaIcon,
 } from '@heroicons/react/24/outline';
 import { useAuth } from '../../hooks';
 import { useToggle } from '../../hooks';
@@ -23,7 +24,7 @@ interface NavItem {
 const adminNavItems: NavItem[] = [
     { to: PATHS.admin.root, label: 'Admin Dashboard', icon: ShieldCheckIcon },
     { to: PATHS.admin.users, label: 'Manage Users', icon: UserGroupIcon },
-    { to: PATHS.admin.clubs, label: 'Manage Clubs', icon: Cog6ToothIcon },
+    { to: PATHS.admin.clubs, label: 'Manage Clubs', icon: GlobeEuropeAfricaIcon },
     { to: PATHS.admin.events, label: 'Manage Events', icon: Cog6ToothIcon },
     { to: PATHS.admin.settings, label: 'Settings', icon: Cog6ToothIcon },
 ];
