@@ -1,6 +1,6 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import { useAuth } from '../hooks/useAuth';
+import { useAuth } from '../hooks';
 import { AdminSidebar } from '../components/navigation/AdminSidebar';
 
 export const AdminLayout: React.FC = () => {

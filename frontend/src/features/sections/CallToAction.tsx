@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import ctaBG from "../../assets/images/call_to_action_bgImg.png";
-import { ROUTES } from "../../routes/routes";
+import { PATHS } from "../../routes/paths";
 
 const CallToAction = () => {
     return (
@@ -13,10 +13,8 @@ const CallToAction = () => {
                 backgroundRepeat: "no-repeat",
             }}
         >
-            {/* Optional overlay */}
-            <div className="absolute inset-0 bg-black/85"></div> {/* Dark overlay for readability */}
+            <div className="absolute inset-0 bg-black/85"></div>
 
-            {/* Content */}
             <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
                 <h2 className="text-4xl md:text-5xl font-extrabold text-text-orange mb-6 tracking-tight">
                     Ready to Shape Campus Life?
@@ -28,14 +26,14 @@ const CallToAction = () => {
 
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                     <Link
-                        to={ROUTES.register}
+                        to={PATHS.public.register}
                         className="px-8 py-4 bg-button-primary hover:bg-button-primaryHover text-button-textPrimary rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 w-full sm:w-auto flex items-center justify-center"
                     >
                         Get Started
                         <span className="ml-2">→</span>
                     </Link>
                     <Link
-                        to={ROUTES.landing}
+                        to={PATHS.public.home}
                         className="px-8 py-4 bg-button-secondary text-button-textSecondary hover:bg-button-secondaryHover rounded-xl font-bold text-lg transition-all duration-300 w-full sm:w-auto text-center"
                     >
                         Read Guidelines
