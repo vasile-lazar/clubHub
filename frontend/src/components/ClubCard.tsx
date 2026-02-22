@@ -8,14 +8,14 @@ import { XMarkIcon, CheckCircleIcon, UserGroupIcon, ArrowRightIcon } from '@hero
 interface ClubCardProps {
   club: Club;
   isMember?: boolean;
-  onLeave?: (clubId: string) => void;
-  onJoin?: (clubId: string) => void;
+  onLeave?: (clubId: number) => void;
+  onJoin?: (clubId: number) => void;
 }
 
 export const ClubCard: React.FC<ClubCardProps> = ({ club, isMember = false, onLeave, onJoin }) => {
   const [isLeaving, setIsLeaving] = useState(false);
   const [isJoining, setIsJoining] = useState(false);
-  const clubId = String(club.id);
+  const clubId = club.id;
 
   const handleLeave = () => {
     if (window.confirm(`Are you sure you want to leave ${club.name}?`)) {

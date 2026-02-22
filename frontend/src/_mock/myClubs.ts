@@ -4,7 +4,7 @@ import myClubsJson from './myClubs.json';
 export const mockJoinedClubs: MyClubCardData[] = myClubsJson.joinedClubs as MyClubCardData[];
 
 export interface MyClubsNotification {
-  id: string;
+  id: number;
   clubName: string;
   message: string;
   time: string;
