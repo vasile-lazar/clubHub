@@ -1,16 +1,16 @@
 import React from "react";
-import {Button} from "../../components/ui/Button";
-import {ROUTES} from "../../routes/routes";
+import { Button } from "../../components/ui/Button";
+import { PATHS } from "../../routes/paths";
 
 const Hero: React.FC = () => {
     return (
-        <section className="relative h-screen flex items-center overflow-hidden ">
+        <section className="relative h-screen flex items-center overflow-hidden">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
 
                     {/* Left: Content */}
                     <div className="max-w-2xl py-12 lg:py-0 relative z-10">
-                        <h1 className="text-5xl lg:text-6xl font-extrabold text-text-primary  tracking-tight mb-6 leading-[1.15]">
+                        <h1 className="text-5xl lg:text-6xl font-extrabold text-text-primary tracking-tight mb-6 leading-[1.15]">
                             Discover Your <br/>
                             <span className="text-text-orange">Campus Community</span>
                         </h1>
@@ -21,16 +21,14 @@ const Hero: React.FC = () => {
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-4 mb-10">
-                            <Button variant="primary" size="md" type="internal" to={ROUTES.clubs}>
+                            <Button variant="primary" size="md" type="internal" to={PATHS.app.clubs}>
                                 Find a Club
                             </Button>
-                            <Button variant="secondary" size="md" type="internal" to={ROUTES.events}>
+                            <Button variant="secondary" size="md" type="internal" to={PATHS.app.events}>
                                 View Events
                             </Button>
                         </div>
-
                     </div>
-
                 </div>
             </div>
 
@@ -42,10 +40,7 @@ const Hero: React.FC = () => {
                         alt="Students on campus"
                         className="h-full w-full object-cover"
                     />
-
-                    {/* Overlay Gradient to blend with white background */}
-                    <div
-                        className="absolute inset-0 bg-gradient-to-r from-bg-primary via-bg-secondary/30 to-transparent transition-colors duration-500"/>
+                    <div className="absolute inset-0 bg-gradient-to-r from-bg-primary via-bg-secondary/30 to-transparent transition-colors duration-500"/>
                 </div>
             </div>
         </section>

@@ -1,26 +1,23 @@
 export const PATHS = {
   public: {
-    home: "/",
-    login: "/login",
-    register: "/register",
-    forbidden: "/forbidden",
-  },
-  app: {
-    root: "/app",
-    dashboard: "/app",
-    profile: "/app/profile",
-    clubs: "/app/clubs",
-    events: "/app/events",
-    myClubs: "/app/my-clubs",
-  },
-  admin: {
-    root: "/admin",
-    dashboard: "/admin",
-    users: "/admin/users",
-    settings: "/admin/settings",
-  },
-  err: {
+    home: '/',
+    login: '/login',
+    register: '/register',
     forbidden: '/403',
     notFound: '/404',
-  }
-};
+  },
+  app: {
+    root: '/dashboard',
+    dashboard: '/dashboard',
+    profile: '/profile',
+    clubs: '/clubs',
+    events: '/events',
+    myClubs: '/myclubs',
+  },
+  admin: {
+    root: '/admin',
+    dashboard: '/admin',
+    users: '/admin/users',
+    settings: '/admin/settings',
+  },
+} as const;

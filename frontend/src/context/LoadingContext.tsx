@@ -1,4 +1,4 @@
-import React, { createContext, useCallback, useContext, useState } from 'react';
+import React, {createContext, useCallback, useContext, useState} from 'react';
 
 interface LoadingContextValue {
   isLoading: boolean;
@@ -25,8 +25,7 @@ export const LoadingProvider: React.FC<LoadingProviderProps> = ({ children }) =>
     async <T,>(fn: () => Promise<T>): Promise<T> => {
       setLoading(true);
       try {
-        const result = await fn();
-        return result;
+        return await fn();
       } finally {
         setLoading(false);
       }
