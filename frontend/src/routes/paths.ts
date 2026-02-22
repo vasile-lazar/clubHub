@@ -18,6 +18,8 @@ export const PATHS = {
     root: '/admin',
     dashboard: '/admin',
     users: '/admin/users',
+    clubs: '/admin/clubs',
+    events: '/admin/events',
     settings: '/admin/settings',
   },
 } as const;

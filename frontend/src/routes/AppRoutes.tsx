@@ -11,17 +11,21 @@ import { Login } from '../pages/guest/Login';
 import { Register } from '../pages/guest/Register';
 
 import { Dashboard } from '../pages/user/Dashboard';
-import { Profile } from '../pages/user/Profile';
+import Profile from '../pages/user/Profile';
 import { Clubs } from '../pages/user/Clubs';
+
 import { Events } from '../pages/user/Events';
 import { MyClubs } from '../pages/user/MyClubs';
 
 import { AdminDashboard } from '../pages/admin/AdminDashboard';
 import { UserManagement } from '../pages/admin/UserManagement';
+import {ClubsManagement} from '../pages/admin/ClubsManagement'
+import {EventsManagement} from '../pages/admin/EventsManagement'
 import { Settings } from '../pages/admin/Settings';
 
 import { NotFound } from '../pages/NotFound';
 import { Forbidden } from '../pages/Forbidden';
+
 
 const router = createBrowserRouter([
   {
@@ -65,6 +69,8 @@ const router = createBrowserRouter([
         children: [
           { path: PATHS.admin.dashboard, element: <AdminDashboard /> },
           { path: PATHS.admin.users, element: <UserManagement /> },
+          { path: PATHS.admin.clubs, element: <ClubsManagement /> },
+          { path: PATHS.admin.events, element: <EventsManagement /> },
           { path: PATHS.admin.settings, element: <Settings /> },
         ],
       },
