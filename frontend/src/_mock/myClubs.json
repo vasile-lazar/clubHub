@@ -1,7 +1,7 @@
 {
   "joinedClubs": [
     {
-      "id": "1",
+      "id": 1,
       "name": "Computer Science Society",
       "description": "Connect with fellow CS students and explore technology together.",
       "members": 120,
@@ -23,7 +23,7 @@
       "joinedDate": "2025-09-15"
     },
     {
-      "id": "2",
+      "id": 2,
       "name": "Art & Design Collective",
       "description": "Express your creativity through various art forms and design projects.",
       "members": 80,
@@ -45,7 +45,7 @@
       "joinedDate": "2025-10-20"
     },
     {
-      "id": "3",
+      "id": 3,
       "name": "Environmental Action Team",
       "description": "Promote sustainability and organize eco-friendly initiatives.",
       "members": 60,
@@ -69,21 +69,21 @@
   ],
   "notifications": [
     {
-      "id": "1",
+      "id": 1,
       "clubName": "Computer Science Society",
       "message": "posted a new announcement: \"Hackathon Registration Open\"",
       "time": "2 hours ago",
       "type": "announcement"
     },
     {
-      "id": "2",
+      "id": 2,
       "clubName": "Art & Design Collective",
       "message": "event tomorrow at 6:00 PM: \"Art Exhibition Opening\"",
       "time": "5 hours ago",
       "type": "event"
     },
     {
-      "id": "3",
+      "id": 3,
       "clubName": "Environmental Action Team",
       "message": "You earned a new badge: \"Eco Champion\"",
       "time": "1 day ago",

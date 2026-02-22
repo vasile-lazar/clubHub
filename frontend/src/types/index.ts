@@ -18,7 +18,7 @@ export interface AuthState {
 
 // ========== Club ==========
 export interface Club {
-  id: number | string;
+  id: number;
   name: string;
   description: string;
   members: number;
