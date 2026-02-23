@@ -42,9 +42,9 @@ const userNavItems: NavItem[] = [
     {to: PATHS.app.events, label: 'Events', icon: CalendarIcon},
 ];
 
-/* ---------------- ADMIN EXTRA NAV ---------------- */
+/* ---------------- ADMIN NAV ---------------- */
 
-const adminExtraNavItems: NavItem[] = [
+const adminNavItems: NavItem[] = [
     {to: PATHS.admin.root, label: 'Admin Dashboard', icon: ShieldCheckIcon},
     {to: PATHS.admin.users, label: 'Manage Users', icon: UserGroupIcon},
     {to: PATHS.admin.clubs, label: 'Manage Clubs', icon: GlobeEuropeAfricaIcon},
@@ -64,6 +64,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
     const [isMobileOpen, toggleMobile, setMobileOpen] = useToggle(false);
 
     const isAdmin = user.role === 'admin';
+    const navItems = isAdmin ? adminNavItems : userNavItems;
 
     const handleLogout = () => {
         logout();
@@ -138,8 +139,6 @@ export const Sidebar: React.FC<SidebarProps> = ({
                         )}
                     </div>
 
-                    {/* Collapse button: inline when expanded, slightly outside when collapsed */}
-
                     <button
                         onClick={onToggleCollapse}
                         className={`
@@ -162,51 +161,29 @@ export const Sidebar: React.FC<SidebarProps> = ({
                             <ChevronLeftIcon className="h-4 w-4"/>
                         )}
                     </button>
-
                 </div>
 
                 {/* -------- Navigation -------- */}
                 <nav className="flex-1 p-3 space-y-1 overflow-y-auto">
-                    {/* User Pages */}
-                    {userNavItems.map(({to, label, icon: Icon}) => (
+                    {!isCollapsed && isAdmin && (
+                        <p className="px-3 mb-2 text-xs font-semibold text-text-secondary uppercase">
+                            Admin
+                        </p>
+                    )}
+
+                    {navItems.map(({to, label, icon: Icon}) => (
                         <NavLink
                             key={to}
                             to={to}
                             className={navLinkClass}
                             onClick={() => setMobileOpen(false)}
                             title={isCollapsed ? label : undefined}
+                            end={to === PATHS.admin.root}
                         >
                             <Icon className="h-5 w-5 flex-shrink-0"/>
                             {!isCollapsed && <span>{label}</span>}
                         </NavLink>
                     ))}
-
-                    {/* Admin Pages */}
-                    {isAdmin && (
-                        <>
-                            <div className="my-3 border-t border-border-default"/>
-
-                            {!isCollapsed && (
-                                <p className="px-3 text-xs font-semibold text-text-secondary uppercase">
-                                    Admin
-                                </p>
-                            )}
-
-                            {adminExtraNavItems.map(({to, label, icon: Icon}) => (
-                                <NavLink
-                                    key={to}
-                                    to={to}
-                                    className={navLinkClass}
-                                    onClick={() => setMobileOpen(false)}
-                                    title={isCollapsed ? label : undefined}
-                                    end={to === PATHS.admin.root}
-                                >
-                                    <Icon className="h-5 w-5 flex-shrink-0"/>
-                                    {!isCollapsed && <span>{label}</span>}
-                                </NavLink>
-                            ))}
-                        </>
-                    )}
                 </nav>
 
                 {/* -------- Footer -------- */}
