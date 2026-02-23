@@ -8,6 +8,7 @@ import {
 
 const ROLES = [
     {
+        id: 1,
         title: "For Students",
         description: "Discover your passion and build your network.",
         features: ["Browse 100+ active clubs", "One-click event RSVP", "Track extracurricular transcript"],
@@ -15,6 +16,7 @@ const ROLES = [
         borderColor: "border-brand-orange",
     },
     {
+        id: 2,
         title: "For Organizers",
         description: "Powerful tools to lead and grow your community.",
         features: ["Easy event scheduling", "Real-time attendance tracking", "Member communication tools"],
@@ -22,6 +24,7 @@ const ROLES = [
         borderColor: "border-stat-green",
     },
     {
+        id: 3,
         title: "For Admins",
         description: "Oversight and insights for the entire institution.",
         features: ["Campus-wide analytics", "Safety & compliance workflows", "Grant & funding management"],
@@ -42,12 +45,12 @@ const RoleFeatures = () => {
                 </div>
 
                 <div className="grid md:grid-cols-3 gap-8">
-                    {ROLES.map((role, index) => {
+                    {ROLES.map((role) => {
                         const Icon = role.icon;
 
                         return (
                             <RoleCard
-                                key={index}
+                                key={role.id}
                                 title={role.title}
                                 description={role.description}
                                 features={role.features}
