@@ -107,7 +107,7 @@ export const Dashboard: React.FC = () => {
             border: 'border-stat-blue/30',
             icon: 'text-stat-blue',
             text: 'text-stat-blue',
-            sub: 'text-stat-blue/80',
+            sub: 'text-text-primary',
           }}
         />
         <StatCard
@@ -120,7 +120,7 @@ export const Dashboard: React.FC = () => {
             border: 'border-stat-green/30',
             icon: 'text-stat-green',
             text: 'text-stat-green',
-            sub: 'text-stat-green/80',
+            sub: 'text-text-primary',
           }}
         />
         <StatCard
@@ -133,7 +133,7 @@ export const Dashboard: React.FC = () => {
             border: 'border-admin-accent/30',
             icon: 'text-admin-accent',
             text: 'text-admin-accent',
-            sub: 'text-admin-accent/80',
+            sub: 'text-text-primary',
           }}
         />
         <StatCard
@@ -146,7 +146,7 @@ export const Dashboard: React.FC = () => {
             border: 'border-stat-amber/30',
             icon: 'text-stat-amber',
             text: 'text-stat-amber',
-            sub: 'text-stat-amber/80',
+            sub: 'text-text-primary',
           }}
         />
       </div>
