@@ -53,7 +53,7 @@ const ActivityRow: React.FC<ActivityRowProps> = ({ item }) => (
                 <p className="text-sm text-text-secondary">{item.user}</p>
             </div>
         </div>
-        <span className="text-xs text-text-muted">{item.time}</span>
+        <span className="text-xs text-text-primary">{item.time}</span>
     </li>
 );
 
