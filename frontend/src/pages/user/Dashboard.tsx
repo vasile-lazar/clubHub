@@ -15,7 +15,7 @@ import {
   TrophyIcon,
   BoltIcon,
 } from '@heroicons/react/24/outline';
-import { ROUTES } from '../../routes/routes';
+import { PATHS } from '../../routes/paths';
 import type { Club, Event, Announcement } from '../../types';
 
 interface StatCardProps {
@@ -91,7 +91,7 @@ export const Dashboard: React.FC = () => {
           <h1 className="text-2xl sm:text-3xl font-bold text-text-primary">Welcome Back!</h1>
           <p className="text-text-secondary mt-1">Here&apos;s what&apos;s happening with your clubs</p>
         </div>
-        <Button variant="primary" size="sm" type="internal" to={ROUTES.clubs}>
+        <Button variant="primary" size="sm" type="internal" to={PATHS.app.clubs}>
           Discover Clubs
         </Button>
       </div>
@@ -156,7 +156,7 @@ export const Dashboard: React.FC = () => {
           <Card>
             <CardHeader>
               <CardTitle>Upcoming Events</CardTitle>
-              <Button variant="ghost" size="sm" type="internal" to={ROUTES.events}>
+              <Button variant="ghost" size="sm" type="internal" to={PATHS.app.events}>
                 View all
               </Button>
             </CardHeader>
@@ -200,7 +200,7 @@ export const Dashboard: React.FC = () => {
           <Card>
             <CardHeader>
               <CardTitle>My Clubs</CardTitle>
-              <Button variant="ghost" size="sm" type="internal" to={ROUTES.clubs}>
+              <Button variant="ghost" size="sm" type="internal" to={PATHS.app.myClubs}>
                 View all
               </Button>
             </CardHeader>
