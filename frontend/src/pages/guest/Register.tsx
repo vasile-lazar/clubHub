@@ -1,53 +1,50 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useAuth } from '../../hooks/useAuth';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { z } from 'zod';
+import { useAuth } from '../../hooks';
 import { useToast } from '../../context/ToastContext';
 import { Input } from '../../components/ui/Input';
 import { Button } from '../../components/ui/Button';
 import { PATHS } from '../../routes/paths';
-import {
-  validateRequired,
-  validatePassword,
-  validatePasswordConfirm,
-} from '../../utils/validation';
 import registerPhoto from '../../assets/images/loginPhoto.jpg';
 
+const registerSchema = z
+    .object({
+      username: z.string().min(1, 'Username is required'),
+      password: z.string().min(6, 'Password must be at least 6 characters'),
+      confirmPassword: z.string().min(1, 'Please confirm your password'),
+      rememberMe: z.boolean(),
+    })
+    .refine((data) => data.password === data.confirmPassword, {
+      message: 'Passwords do not match',
+      path: ['confirmPassword'],
+    });
+
+type RegisterFormData = z.infer<typeof registerSchema>;
+
 export const Register: React.FC = () => {
-  const { register } = useAuth();
+  const { register: registerUser } = useAuth();
   const toast = useToast();
   const navigate = useNavigate();
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
-  const [rememberMe, setRememberMe] = useState(true);
-  const [errors, setErrors] = useState<{
-    username?: string;
-    password?: string;
-    confirmPassword?: string;
-  }>({});
-  const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    const usernameErr = validateRequired(username, 'Username');
-    const passwordErr = validatePassword(password);
-    const confirmErr = validatePasswordConfirm(password, confirmPassword);
-    setErrors({
-      username: usernameErr || undefined,
-      password: passwordErr || undefined,
-      confirmPassword: confirmErr || undefined,
-    });
-    if (usernameErr || passwordErr || confirmErr) return;
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm<RegisterFormData>({
+    resolver: zodResolver(registerSchema),
+    defaultValues: { rememberMe: true },
+  });
 
-    setIsLoading(true);
+  const onSubmit = async (data: RegisterFormData) => {
     try {
-      await register(username, password, rememberMe);
+      await registerUser(data.username, data.password, data.rememberMe);
       toast.success('Account created successfully!');
       navigate(PATHS.app.dashboard, { replace: true });
     } catch {
       toast.error('Registration failed. Please try again.');
-    } finally {
-      setIsLoading(false);
     }
   };
 
@@ -57,11 +54,7 @@ export const Register: React.FC = () => {
           <div className="absolute top-6 left-6 z-20 text-text-primary text-2xl font-bold">
             ClubHub
           </div>
-          <img
-              src={registerPhoto}
-              alt="Register"
-              className="object-cover w-full h-screen"
-          />
+          <img src={registerPhoto} alt="Register" className="object-cover w-full h-screen" />
         </div>
 
         <div className="flex-1 flex items-center justify-center bg-bg-primary p-6 sm:p-8">
@@ -69,67 +62,47 @@ export const Register: React.FC = () => {
             <h2 className="text-2xl sm:text-3xl font-bold text-text-primary">
               Welcome to ClubHub
             </h2>
-            <p className="text-text-secondary">
-              Create your account to join the community
-            </p>
+            <p className="text-text-secondary">Create your account to join the community</p>
 
-            <form className="space-y-4" onSubmit={handleSubmit}>
+            <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
               <Input
                   type="text"
-                  name="username"
                   placeholder="Username"
-                  value={username}
-                  onChange={(e) => {
-                    setUsername(e.target.value);
-                    setErrors((prev) => ({ ...prev, username: undefined }));
-                  }}
-                  error={errors.username}
                   autoComplete="username"
-                  disabled={isLoading}
+                  disabled={isSubmitting}
+                  error={errors.username?.message}
+                  {...register('username')}
               />
               <Input
                   type="password"
-                  name="password"
                   placeholder="Password"
-                  value={password}
-                  onChange={(e) => {
-                    setPassword(e.target.value);
-                    setErrors((prev) => ({ ...prev, password: undefined, confirmPassword: undefined }));
-                  }}
-                  error={errors.password}
                   autoComplete="new-password"
-                  disabled={isLoading}
+                  disabled={isSubmitting}
+                  error={errors.password?.message}
+                  {...register('password')}
               />
-              <div className="space-y-1">
-                <Input
-                    type="password"
-                    name="confirmPassword"
-                    placeholder="Confirm Password"
-                    value={confirmPassword}
-                    onChange={(e) => {
-                      setConfirmPassword(e.target.value);
-                      setErrors((prev) => ({ ...prev, confirmPassword: undefined }));
-                    }}
-                    error={errors.confirmPassword}
-                    autoComplete="new-password"
-                    disabled={isLoading}
-                />
-              </div>
-              <p className="text-xs text-text-muted">
-                Password must be at least 6 characters.
-              </p>
+              <Input
+                  type="password"
+                  placeholder="Confirm Password"
+                  autoComplete="new-password"
+                  disabled={isSubmitting}
+                  error={errors.confirmPassword?.message}
+                  {...register('confirmPassword')}
+              />
+
+              <p className="text-xs text-text-muted">Password must be at least 6 characters.</p>
+
               <label className="flex items-center gap-2 text-text-secondary text-sm cursor-pointer">
                 <input
                     type="checkbox"
-                    checked={rememberMe}
-                    onChange={(e) => setRememberMe(e.target.checked)}
                     className="accent-brand-orange"
+                    {...register('rememberMe')}
                 />
                 Keep me logged in
               </label>
 
-              <Button type="submit" variant="primary" className="w-full" disabled={isLoading}>
-                {isLoading ? 'Creating account...' : 'Register'}
+              <Button type="submit" variant="primary" className="w-full" disabled={isSubmitting}>
+                {isSubmitting ? 'Creating account...' : 'Register'}
               </Button>
             </form>
 
