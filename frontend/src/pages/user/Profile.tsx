@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {useForm} from 'react-hook-form';
 import {zodResolver} from '@hookform/resolvers/zod';
 import {z} from 'zod';
-import {useAuth} from '../../hooks';
+import {useAuth} from '../../hooks/useAuth';
 import {Card, CardHeader, CardContent, CardTitle} from '../../components/ui/Card';
 import {Button} from '../../components/ui/Button';
 import {Input} from '../../components/ui/Input';
@@ -36,6 +36,8 @@ const mockClubs = [
 
 const COVER_URL = 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=300&fit=crop';
 const AVATAR_URL = 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=200&h=200&fit=crop';
+
+const show = (condition: boolean) => condition ? '' : 'hidden';
 
 const profileSchema = z
     .object({
@@ -106,14 +108,7 @@ const Profile: React.FC = () => {
     const [saveSuccess, setSaveSuccess] = useState(false);
     const [savedUsername, setSavedUsername] = useState(user?.username ?? '');
 
-    const role = user?.role ?? 'user';
-
-    const {
-        register,
-        handleSubmit,
-        reset,
-        formState: {errors, isSubmitting},
-    } = useForm<ProfileFormData>({
+    const {register, handleSubmit, reset, formState: {errors, isSubmitting}} = useForm<ProfileFormData>({
         resolver: zodResolver(profileSchema),
         defaultValues: {
             username: savedUsername,
@@ -122,6 +117,10 @@ const Profile: React.FC = () => {
             confirmPassword: '',
         },
     });
+
+    if (!user) return null;
+
+    const role = user.role;
 
     const handleEditToggle = () => {
         if (isEditing) {
@@ -143,7 +142,7 @@ const Profile: React.FC = () => {
             <div className="relative rounded-3xl overflow-hidden shadow-md">
                 <div className="h-52 w-full">
                     <img src={COVER_URL} alt="Cover" className="h-full w-full object-cover"/>
-                    <div className="absolute inset-0 h-52 bg-gradient-to-r from-black/30 to-transparent"/>
+                    <div className="absolute inset-0 h-52"/>
                 </div>
 
                 <div className="bg-bg-primary px-6 pb-5 pt-0 flex flex-col sm:flex-row sm:items-end gap-4">
@@ -154,7 +153,7 @@ const Profile: React.FC = () => {
                     <div className="flex-1 pb-1">
                         <h2 className="text-xl font-bold text-text-primary leading-tight">{savedUsername}</h2>
                         <p className="text-sm text-text-secondary capitalize">{role}</p>
-                        <p className="text-xs text-text-muted mt-0.5">Joined Jan 01 2024</p>
+                        <p className="text-xs text-text-primary mt-0.5">Joined Jan 01 2024</p>
                     </div>
                     <div className="pb-1">
                         <Button variant={isEditing ? 'ghost' : 'primary'} size="sm" onClick={handleEditToggle}>
@@ -164,11 +163,11 @@ const Profile: React.FC = () => {
                 </div>
             </div>
 
-            {saveSuccess && (
+            <div className={show(saveSuccess)}>
                 <div className="rounded-xl bg-green-500/10 border border-green-500/30 text-green-600 text-sm px-4 py-3">
                     Profile updated successfully.
                 </div>
-            )}
+            </div>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                 <StatCard icon={<UserGroupIcon className="w-6 h-6 text-text-secondary"/>} label="Followers"
@@ -185,54 +184,54 @@ const Profile: React.FC = () => {
                         <CardTitle>Account Info</CardTitle>
                     </CardHeader>
                     <CardContent className="space-y-4">
-                        {isEditing ? (
-                            <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+                        <form onSubmit={handleSubmit(onSubmit)} className={`space-y-4 ${show(isEditing)}`}>
+                            <Input
+                                label="Username"
+                                placeholder="Enter username"
+                                error={errors.username?.message}
+                                {...register('username')}
+                            />
+
+                            <div className="pt-2 border-t border-border-default space-y-3">
+                                <p className="text-sm font-medium text-text-primary">Change Password</p>
                                 <Input
-                                    label="Username"
-                                    placeholder="Enter username"
-                                    error={errors.username?.message}
-                                    {...register('username')}
+                                    label="Current Password"
+                                    type="password"
+                                    placeholder="••••••••"
+                                    error={errors.currentPassword?.message}
+                                    {...register('currentPassword')}
                                 />
+                                <Input
+                                    label="New Password"
+                                    type="password"
+                                    placeholder="••••••••"
+                                    error={errors.newPassword?.message}
+                                    {...register('newPassword')}
+                                />
+                                <Input
+                                    label="Confirm New Password"
+                                    type="password"
+                                    placeholder="••••••••"
+                                    error={errors.confirmPassword?.message}
+                                    {...register('confirmPassword')}
+                                />
+                            </div>
 
-                                <div className="pt-2 border-t border-border-default space-y-3">
-                                    <p className="text-sm font-medium text-text-primary">Change Password</p>
-                                    <Input
-                                        label="Current Password"
-                                        type="password"
-                                        placeholder="••••••••"
-                                        error={errors.currentPassword?.message}
-                                        {...register('currentPassword')}
-                                    />
-                                    <Input
-                                        label="New Password"
-                                        type="password"
-                                        placeholder="••••••••"
-                                        error={errors.newPassword?.message}
-                                        {...register('newPassword')}
-                                    />
-                                    <Input
-                                        label="Confirm New Password"
-                                        type="password"
-                                        placeholder="••••••••"
-                                        error={errors.confirmPassword?.message}
-                                        {...register('confirmPassword')}
-                                    />
-                                </div>
+                            <div className="flex justify-end pt-2">
+                                <Button type="submit" variant="primary" disabled={isSubmitting}>
+                                    Save Changes
+                                </Button>
+                            </div>
+                        </form>
 
-                                <div className="flex justify-end pt-2">
-                                    <Button type="submit" variant="primary" disabled={isSubmitting}>
-                                        Save Changes
-                                    </Button>
-                                </div>
-                            </form>
-                        ) : (
+                        <div className={show(!isEditing)}>
                             <div className="space-y-4">
                                 <InfoRow label="Username" value={savedUsername}/>
                                 <InfoRow label="Role" value={<span className="capitalize">{role}</span>}/>
                                 <InfoRow label="Password" value="••••••••"/>
                                 <InfoRow label="Member Since" value="January 1, 2024"/>
                             </div>
-                        )}
+                        </div>
                     </CardContent>
                 </Card>
 
@@ -241,31 +240,31 @@ const Profile: React.FC = () => {
                         <CardTitle>My Clubs</CardTitle>
                     </CardHeader>
                     <CardContent>
-                        {mockClubs.length === 0 ? (
+                        <div className={show(mockClubs.length === 0)}>
                             <p className="text-sm text-text-secondary text-center py-6">
                                 You haven't joined any clubs yet.
                             </p>
-                        ) : (
-                            <div className="space-y-3">
-                                {mockClubs.map((club, index) => (
-                                    <div key={club.id}
-                                         className="flex items-center gap-4 p-3 rounded-xl bg-bg-secondary border border-border-default">
-                                        <span
-                                            className="text-sm font-bold text-text-muted w-4 text-center">{index + 1}</span>
-                                        <img src={club.imageUrl} alt={club.name}
-                                             className="h-10 w-10 rounded-xl object-cover shrink-0"/>
-                                        <div className="flex-1 min-w-0">
-                                            <p className="text-sm font-semibold text-text-primary truncate">{club.name}</p>
-                                            <p className="text-xs text-text-secondary">{club.members} members</p>
-                                        </div>
-                                        <span
-                                            className="text-xs px-2 py-1 rounded-full bg-bg-primary border border-border-default text-text-secondary shrink-0">
-                      Member
-                    </span>
+                        </div>
+
+                        <div className={`space-y-3 ${show(mockClubs.length > 0)}`}>
+                            {mockClubs.map((club, index) => (
+                                <div key={club.id}
+                                     className="flex items-center gap-4 p-3 rounded-xl bg-bg-secondary border border-border-default">
+                                    <span
+                                        className="text-sm font-bold text-text-muted w-4 text-center">{index + 1}</span>
+                                    <img src={club.imageUrl} alt={club.name}
+                                         className="h-10 w-10 rounded-xl object-cover shrink-0"/>
+                                    <div className="flex-1 min-w-0">
+                                        <p className="text-sm font-semibold text-text-primary truncate">{club.name}</p>
+                                        <p className="text-xs text-text-secondary">{club.members} members</p>
                                     </div>
-                                ))}
-                            </div>
-                        )}
+                                    <span
+                                        className="text-xs px-2 py-1 rounded-full bg-bg-primary border border-border-default text-text-secondary shrink-0">
+                    Member
+                  </span>
+                                </div>
+                            ))}
+                        </div>
                     </CardContent>
                 </Card>
             </div>
