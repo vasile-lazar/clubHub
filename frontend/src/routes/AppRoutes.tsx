@@ -14,7 +14,7 @@ import {ClubPage} from '../pages/user/ClubPage'
 import {Events} from '../pages/user/Events';
 
 import {Dashboard} from '../pages/user/Dashboard';
-import {Profile} from '../pages/user/Profile';
+import Profile from '../pages/user/Profile';
 import {MyClubs} from '../pages/user/MyClubs';
 
 import {AdminDashboard} from '../pages/admin/AdminDashboard';

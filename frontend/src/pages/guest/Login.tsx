@@ -8,7 +8,6 @@ import { useToast } from '../../context/ToastContext';
 import { Input } from '../../components/ui/Input';
 import { Button } from '../../components/ui/Button';
 import { PATHS } from '../../routes/paths';
-import { validateRequired } from '../../utils/validation';
 import loginPhoto from '../../assets/images/loginPhoto.jpg';
 
 const loginSchema = z.object({
