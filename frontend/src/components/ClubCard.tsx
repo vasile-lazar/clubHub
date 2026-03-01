@@ -68,7 +68,7 @@ export const ClubCard: React.FC<ClubCardProps> = ({ club, isMember = false, onLe
 
         <div className="mt-auto pt-4 flex flex-wrap items-center justify-between gap-2 border-t border-border-default pt-4">
           <Link
-            to={`/clubs/${clubId}`}
+            to={`/clubs/${club.id}`}
             className="inline-flex items-center gap-1.5 text-sm font-medium text-brand-orange transition-colors hover:text-brand-orange/80"
           >
             View Club

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Button } from '../../components/ui/Button';
+import {EventsList} from "../../components/EventsList.tsx";
 import {
   Card,
   CardHeader,
@@ -11,12 +12,12 @@ import {
   UserGroupIcon,
   CalendarIcon,
   BellIcon,
-  ChatBubbleLeftIcon,
   TrophyIcon,
   BoltIcon,
 } from '@heroicons/react/24/outline';
 import { PATHS } from '../../routes/paths';
 import type { Club, Event, Announcement } from '../../types';
+import {AnnouncementsList} from "../../components/AnnouncementsList.tsx";
 
 interface StatCardProps {
   title: string;
@@ -52,20 +53,60 @@ const mockClubs: Club[] = [
 ];
 
 const mockEvents: Event[] = [
-  { id: 1, title: 'Hackathon', date: '2026-02-20', description: '' },
-  { id: 2, title: 'Art Exhibition', date: '2026-02-22', description: '' },
+    {
+        id: 1,
+        title: `Weekly Meeting`,
+        description: 'Regular weekly gathering for all members.',
+        date: '2026-03-04',
+        time: '5:00 PM',
+        location: 'Room 204, Main Building',
+        attendees: 24,
+        status: 'upcoming',
+    },
+    {
+        id: 2,
+        title: 'Spring Semester Kickoff',
+        description: 'Kick off the new semester with activities and introductions.',
+        date: '2026-03-08',
+        time: '2:00 PM',
+        location: 'Student Union Hall',
+        attendees: 60,
+        status: 'upcoming',
+    },
+    {
+        id: 3,
+        title: 'End-of-Month Social',
+        description: 'Casual social event for members to connect.',
+        date: '2026-03-28',
+        time: '6:00 PM',
+        location: 'Campus Courtyard',
+        attendees: 35,
+        status: 'upcoming',
+    },
 ];
 
 const mockAnnouncements: Announcement[] = [
-  { id: '1', title: 'New Club Policy', clubName: 'Computer Science Society', date: '2026-02-12', isPinned: true },
-  { id: '2', title: 'Event Schedule Updated', clubName: 'Art & Design Collective', date: '2026-02-10', isPinned: false },
+    {
+        clubId : 1,
+        id: 1, title: 'New Club Policy', clubName: 'Computer Science Society', date: '2026-02-12', isPinned: true,
+        content: "",
+        author: "",
+        priority: "high"
+    },
+    {
+        clubId  : 2,
+        id: 2,
+        title: 'Event Schedule Updated',
+        clubName: 'Art & Design Collective',
+        date: '2026-02-10',
+        isPinned: false,
+        content: "",
+        author: "",
+        priority: "high"
+    }
 ];
 
-const activityFeed = [
-  { club: 'Computer Science Society', action: 'Posted a new event', time: '2 hours ago', icon: CalendarIcon },
-  { club: 'Environmental Action Team', action: '5 new members joined', time: '5 hours ago', icon: UserGroupIcon },
-  { club: 'Art & Design Collective', action: 'New announcement posted', time: '1 day ago', icon: ChatBubbleLeftIcon },
-];
+
 
 const tips = [
   { icon: BoltIcon, text: 'Join a club to unlock networking opportunities' },
@@ -152,49 +193,11 @@ export const Dashboard: React.FC = () => {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <div className="lg:col-span-2 space-y-6">
-          <Card>
-            <CardHeader>
-              <CardTitle>Upcoming Events</CardTitle>
-              <Button variant="ghost" size="sm" type="internal" to={PATHS.app.events}>
-                View all
-              </Button>
-            </CardHeader>
-            <CardContent>
-              {upcomingEvents.map((event) => (
-                <div
-                  key={event.id}
-                  className="flex justify-between items-center py-2 border-b border-border-default last:border-0"
-                >
-                  <div>
-                    <p className="font-medium text-text-primary">{event.title}</p>
-                    <p className="text-sm text-text-secondary">{event.date}</p>
-                  </div>
-                  <Badge variant="outline">upcoming</Badge>
-                </div>
-              ))}
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <CardTitle>Recent Activity</CardTitle>
-            </CardHeader>
-            <CardContent>
-              {activityFeed.map((act, idx) => (
-                <div key={idx} className="flex items-center gap-3 py-2">
-                  <act.icon className="h-5 w-5 text-brand-orange flex-shrink-0" />
-                  <div>
-                    <p className="text-sm text-text-primary">
-                      <span className="font-medium">{act.club}</span> {act.action}
-                    </p>
-                    <p className="text-xs text-text-secondary">{act.time}</p>
-                  </div>
-                </div>
-              ))}
-            </CardContent>
-          </Card>
-        </div>
+          
+      <div className="lg:col-span-2 space-y-6">
+        <EventsList events={mockEvents} showViewAll={true} />
+        <AnnouncementsList announcements={mockAnnouncements}/>
+      </div>
 
         <div className="space-y-6">
           <Card>

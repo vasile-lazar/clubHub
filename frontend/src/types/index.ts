@@ -63,9 +63,13 @@ export interface Event {
 
 // ========== Announcement ==========
 export interface Announcement {
-  id: string;
+  id: number;
+  clubId: number;
   title: string;
-  clubName: string;
+  content: string;
+  author: string;
   date: string;
-  isPinned: boolean;
+  priority: string ;
+  isPinned?: boolean;  
+  clubName?: string;    
 }

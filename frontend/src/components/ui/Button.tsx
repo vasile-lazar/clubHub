@@ -39,8 +39,8 @@ const sizeStyles: Record<Size, string> = {
 };
 
 const variantStyles: Record<Variant, string> = {
-  primary: 'bg-button-primary hover:bg-button-primaryHover text-text-inverse',
-  secondary: 'bg-button-secondary hover:bg-button-secondaryHover text-text-inverse',
+  primary: 'bg-button-primary hover:bg-button-primaryHover text-white',
+  secondary: 'bg-button-secondary hover:bg-button-secondaryHover text-white',
   ghost: 'bg-transparent border border-border-default text-text-primary hover:bg-bg-secondary',
   danger: 'bg-danger hover:bg-danger-hover text-button-textPrimary',
   outline: 'border-2 border-brand-orange text-text-orange hover:bg-brand-orange hover:text-text-inverse',
