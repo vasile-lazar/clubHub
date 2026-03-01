@@ -67,7 +67,7 @@ export const EventPage: React.FC = () => {
     const attendeeCount = event.attendees ?? 0;
 
     return (
-        <div className="space-y-6 max-w-4xl mx-auto">
+        <div className="space-y-6 p-4 lg:p-9">
             
             {/* Hero Header */}
             <div className="relative h-72 rounded-xl overflow-hidden">
