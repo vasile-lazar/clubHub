@@ -15,6 +15,18 @@ export const GuestHeader: React.FC = () => (
                     <span className="text-text-inverse">Hub</span>
                 </Link>
                 <nav className="flex items-center gap-2 sm:gap-4">
+                    <Link
+                        to={PATHS.app.clubs}
+                        className="text-white/90 hover:text-white font-medium px-3 py-1.5 rounded-lg hover:bg-white/10 transition"
+                    >
+                        Clubs
+                    </Link>
+                    <Link
+                        to={PATHS.app.events}
+                        className="text-white/90 hover:text-white font-medium px-3 py-1.5 rounded-lg hover:bg-white/10 transition"
+                    >
+                        Events
+                    </Link>
                     <ThemeToggle className="text-white" />
                     <Link
                         to={PATHS.public.login}

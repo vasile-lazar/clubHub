@@ -29,7 +29,7 @@ export interface AuthContextValue {
     token: string | null;
     isAuthenticated: boolean;
     isLoading: boolean;
-    login: (username: string, password: string, rememberMe?: boolean) => Promise<void>;
+    login: (username: string, password: string, rememberMe?: boolean) => Promise<User>;
     logout: () => void;
     register: (username: string, password: string, rememberMe?: boolean) => Promise<void>;
 }
@@ -90,18 +90,21 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({children}) => {
 
 
     const login = useCallback(
-        async (username: string, password: string, rememberMe = true) => {
+        async (username: string, password: string, rememberMe = true): Promise<User> => {
             let role: User['role'] = 'user';
             if (username === 'admin' && password === 'admin') {
                 role = 'admin';
             } else if (username === 'user' && password === 'user') {
                 role = 'user';
+            } else if (username === 'clubmanager' && password === 'clubmanager') {
+                role = 'clubmanager';
             } else {
                 throw new Error('Invalid credentials');
             }
-            const mockUser: User = {username, role};
+            const mockUser: User = { username, role };
             const mockToken = `mock-jwt-${Date.now()}`;
             persistAuth(mockUser, mockToken, rememberMe);
+            return mockUser;
         },
         [persistAuth]
     );

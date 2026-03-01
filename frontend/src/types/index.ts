@@ -1,5 +1,5 @@
 // ========== User & Auth ==========
-export type UserRole = 'guest' | 'user' | 'admin';
+export type UserRole = 'user' | 'clubmanager' | 'admin';
 
 export interface User {
   id?: string;
@@ -29,7 +29,7 @@ export interface Club {
 
 /** Extended club data for "My Clubs" cards (role, next event, stats, badges) */
 export interface MyClubCardData extends Club {
-  userRole?: 'Member' | 'Lead' | 'Admin';
+  userRole?: 'Member' | 'clubmanager' | 'Admin';
   nextEvent?: {
     title: string;
     date: string;
@@ -48,6 +48,7 @@ export interface MyClubCardData extends Club {
 // ========== Event ==========
 export interface Event {
   id: number;
+  clubId?: number;
   title: string;
   description?: string;
   category?: string;

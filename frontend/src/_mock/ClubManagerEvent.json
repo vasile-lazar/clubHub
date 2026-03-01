@@ -1,0 +1,62 @@
+﻿[
+  {
+    "id": 101,
+    "clubId": 1,
+    "title": "Photography Walk",
+    "description": "A guided walk through the city focusing on street photography.",
+    "date": "2026-04-10",
+    "time": "10:00",
+    "location": "City Center",
+    "imageUrl": "",
+    "attendees": 20,
+    "status": "upcoming"
+  },
+  {
+    "id": 102,
+    "clubId": 1,
+    "title": "Portrait Workshop",
+    "description": "Learn portrait photography techniques from experienced photographers.",
+    "date": "2026-04-25",
+    "time": "14:00",
+    "location": "Studio A",
+    "imageUrl": "",
+    "attendees": 15,
+    "status": "upcoming"
+  },
+  {
+    "id": 103,
+    "clubId": 3,
+    "title": "Mountain Trail Hike",
+    "description": "An intermediate level hike through mountain trails.",
+    "date": "2026-04-15",
+    "time": "08:00",
+    "location": "Blue Ridge Trail",
+    "imageUrl": "",
+    "attendees": 30,
+    "status": "upcoming"
+  },
+  {
+    "id": 104,
+    "clubId": 3,
+    "title": "Gear Maintenance Workshop",
+    "description": "Learn how to maintain and repair your hiking gear.",
+    "date": "2026-05-01",
+    "time": "13:00",
+    "location": "Community Hall",
+    "imageUrl": "",
+    "attendees": 12,
+    "status": "upcoming"
+  },
+  {
+    "id": 105,
+    "clubId": 5,
+    "title": "Monthly Book Discussion",
+    "description": "Discussion of this month's selected book.",
+    "date": "2026-04-20",
+    "time": "18:00",
+    "location": "City Library",
+    "imageUrl": "",
+    "attendees": 25,
+    "status": "upcoming"
+  }
+]

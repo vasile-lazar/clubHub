@@ -1,8 +1,9 @@
+// EventCard.tsx
 import React from "react";
-import { CalendarIcon, MapPinIcon } from "@heroicons/react/24/outline";
+import {ArrowRightIcon, CalendarIcon, MapPinIcon} from "@heroicons/react/24/outline";
 import { Card, CardContent } from "./ui/Card";
-import { Button } from "./ui/Button";
 import type { Event } from "../types";
+import {Link} from "react-router-dom";
 
 interface EventCardProps {
     event: Event;
@@ -38,7 +39,7 @@ const EventCard: React.FC<EventCardProps> = ({ event }) => {
                     </div>
                 </div>
 
-                {/* Footer: Attendees + Action Buttons */}
+                {/* Footer: Attendees + Buttons */}
                 <div className="mt-5 pt-4 border-t border-border-default flex justify-between items-center">
                     <div className="flex -space-x-2">
                         {[1, 2, 3].map((i) => (
@@ -57,13 +58,17 @@ const EventCard: React.FC<EventCardProps> = ({ event }) => {
                         </div>
                     </div>
 
-                    <div className="flex items-center gap-1.5">
-                        <Button variant="ghost" size="sm" onClick={() => {}}>
-                            View
-                        </Button>
-                        <Button variant="primary" size="sm" onClick={() => {}}>
+                    <div className="flex gap-2">
+                        <Link
+                            to={`/events/${event.id}`}
+                            className="inline-flex items-center gap-1.5 text-sm font-medium text-brand-orange transition-colors hover:text-brand-orange/80"
+                        >
+                            View details
+                            <ArrowRightIcon className="h-4 w-4" />
+                        </Link>
+                        <button className="px-3 py-1.5 text-xs font-semibold rounded-lg bg-accent-primary text-white hover:opacity-90 transition">
                             Join
-                        </Button>
+                        </button>
                     </div>
                 </div>
             </CardContent>
