@@ -110,7 +110,7 @@ export const ClubPage: React.FC = () => {
             
             {/* Hero Header */}
             <div className="relative h-80 rounded-xl overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-brand-orange/40 via-bg-secondary to-bg-secondary" />
+                <div className="absolute inset-0 bg-gradient-to-br" />
                 <img
                     src={club.imageUrl}
                     alt="Cover"

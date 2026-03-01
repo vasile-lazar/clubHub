@@ -13,6 +13,7 @@ import {Register} from '../pages/guest/Register';
 import {Clubs} from '../pages/user/Clubs';
 import {ClubPage} from '../pages/user/ClubPage';
 import {Events} from '../pages/user/Events';
+import {EventPage} from '../pages/user/EventPage'
 
 import {Dashboard} from '../pages/user/Dashboard';
 import Profile from '../pages/user/Profile';
@@ -30,19 +31,21 @@ import {ClubManagerEventsManagement} from '../pages/clubmanager/ClubManagerEvent
 import {NotFound} from '../pages/NotFound';
 import {Forbidden} from '../pages/Forbidden';
 
-const router = createBrowserRouter([
-    // Public — accessible by everyone, layout based on auth state
-    {
-        element: <SmartLayout/>,
-        children: [
-            {path: PATHS.public.home, element: <Landing/>},
-            {path: PATHS.app.clubs, element: <Clubs/>},
-            {path: PATHS.app.clubDetail, element: <ClubPage/>},
-            {path: PATHS.app.events, element: <Events/>},
-        ],
-    },
 
-    // Auth — redirect away if already logged in
+const router = createBrowserRouter([
+    // Public — accessible by everyone including guests
+  {
+    element: <SmartLayout />,
+      children: [
+          { path: PATHS.public.home, element: <Landing /> },
+          { path: PATHS.app.clubs, element: <Clubs /> },
+          { path: PATHS.app.clubDetail, element: <ClubPage /> },
+          { path: PATHS.app.events, element: <Events /> },
+          { path: PATHS.app.eventDetail, element: <EventPage /> },
+          
+      ],
+  },
+  // Auth pages — redirect away if already logged in
     {
         element: <Guard publicOnly/>,
         children: [
@@ -80,6 +83,21 @@ const router = createBrowserRouter([
                 children: [
                     {path: PATHS.clubmanager.clubs, element: <ClubManagerClubsManagement/>},
                     {path: PATHS.clubmanager.events, element: <ClubManagerEventsManagement/>},
+                ],
+            },
+        ],
+    },
+
+    // User — requires auth, role: user
+    {
+        element: <Guard requireAuth allowedRoles={['user']}/>,
+        children: [
+            {
+                element: <UserLayout/>,
+                children: [
+                    {path: PATHS.app.dashboard, element: <Dashboard/>},
+                    {path: PATHS.app.profile, element: <Profile/>},
+                    {path: PATHS.app.myClubs, element: <MyClubs/>},
                 ],
             },
         ],
