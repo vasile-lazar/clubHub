@@ -1,11 +1,11 @@
 import React from 'react';
 import { Button } from '../components/ui/Button';
 import { PATHS } from '../routes/paths';
-import {EyeSlashIcon} from "@heroicons/react/24/outline";
+import {NoSymbolIcon} from "@heroicons/react/24/outline";
 
 export const NotFound: React.FC = () => (
     <div className="min-h-screen flex flex-col items-center justify-center bg-bg-primary px-4">
-        <EyeSlashIcon className="h-24 w-24 text-text-warning mb-4" />
+        <NoSymbolIcon className="h-24 w-24 text-text-warning mb-4" />
         <h1 className="text-6xl font-bold text-text-primary">404</h1>
         <p className="text-xl text-text-secondary mt-2 text-center">
             Page not found
