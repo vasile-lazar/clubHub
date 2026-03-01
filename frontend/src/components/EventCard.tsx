@@ -1,3 +1,4 @@
+// EventCard.tsx
 import React from "react";
 import {ArrowRightIcon, CalendarIcon, MapPinIcon} from "@heroicons/react/24/outline";
 import { Card, CardContent } from "./ui/Card";
@@ -14,7 +15,7 @@ const EventCard: React.FC<EventCardProps> = ({ event }) => {
             {/* Top Image */}
             <div className="group relative h-48 w-full overflow-hidden border-b-2 border-border-default">
                 <img
-                    src={event.imageUrl}
+                    src={event.image}
                     alt={event.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
