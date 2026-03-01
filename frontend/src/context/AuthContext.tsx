@@ -96,6 +96,8 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({children}) => {
                 role = 'admin';
             } else if (username === 'user' && password === 'user') {
                 role = 'user';
+            }else if (username === 'clubmanager' && password === 'clubmanager') {
+                role = 'ClubManager';
             } else {
                 throw new Error('Invalid credentials');
             }
