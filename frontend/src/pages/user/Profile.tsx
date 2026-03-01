@@ -17,26 +17,6 @@ const COVER_URL =
 const AVATAR_URL =
     'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=200&h=200&fit=crop';
 
-// ── Stat Card ─────────────────────────────────────────────────────────────────
-
-interface StatCardProps {
-  icon: React.ReactNode;
-  label: string;
-  value: string | number;
-}
-
-function StatCard({ icon, label, value }: StatCardProps) {
-  return (
-      <div className="flex items-center gap-3 p-4 rounded-2xl bg-bg-secondary border border-border-default">
-        <div className="text-2xl">{icon}</div>
-        <div>
-          <p className="text-xl font-bold text-text-primary leading-none">{value}</p>
-          <p className="text-xs text-text-secondary mt-0.5">{label}</p>
-        </div>
-      </div>
-  );
-}
-
 // ── Main Component ────────────────────────────────────────────────────────────
 
 const Profile: React.FC = () => {
@@ -50,7 +30,7 @@ const Profile: React.FC = () => {
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [passwordError, setPasswordError] = useState('');
-  const [saveSuccess, setSaveSuccess] = useState(false);
+  
 
   // Draft copies while editing
   const [draftUsername, setDraftUsername] = useState(username);
@@ -95,8 +75,6 @@ const Profile: React.FC = () => {
     setNewPassword('');
     setConfirmPassword('');
     setIsEditing(false);
-    setSaveSuccess(true);
-    setTimeout(() => setSaveSuccess(false), 3000);
   };
 
   // @ts-ignore
@@ -104,7 +82,7 @@ const Profile: React.FC = () => {
       <div className="space-y-6 pb-10">
 
         {/* ── Cover + Avatar + Name ── */}
-        <div className="relative rounded-3xl overflow-hidden shadow-md">
+        <div className="relative rounded-3xl  shadow-md">
           {/* Cover image */}
           <div className="h-52 w-full">
             <img
@@ -113,13 +91,13 @@ const Profile: React.FC = () => {
                 className="h-full w-full object-cover"
             />
             {/* Gradient overlay */}
-            <div className="absolute inset-0 h-52 bg-gradient-to-r from-black/30 to-transparent" />
+            <div className="absolute inset-0 h-52 bg-transparent" />
           </div>
 
           {/* Avatar + name row */}
           <div className="bg-bg-primary px-6 pb-5 pt-0 flex flex-col sm:flex-row sm:items-end gap-4">
             {/* Avatar */}
-            <div className="-mt-12 shrink-0">
+            <div className="-mt-12">
               <img
                   src={AVATAR_URL}
                   alt="Avatar"
@@ -146,22 +124,7 @@ const Profile: React.FC = () => {
             </div>
           </div>
         </div>
-
-        {/* ── Success banner ── */}
-        {saveSuccess && (
-            <div className="rounded-xl bg-green-500/10 border border-green-500/30 text-green-600 text-sm px-4 py-3">
-              ✓ Profile updated successfully.
-            </div>
-        )}
-
-        {/* ── Stats row ── */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-          <StatCard icon="👥" label="Followers" value={120} />
-          <StatCard icon="🏆" label="Total Wins" value={3} />
-          <StatCard icon="📅" label="Events" value={20} />
-          <StatCard icon="🎯" label="Clubs Joined" value={mockClubs.length} />
-        </div>
-
+        
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
 
           {/* ── Account Info ── */}

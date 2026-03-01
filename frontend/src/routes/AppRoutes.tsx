@@ -13,6 +13,7 @@ import { Register } from '../pages/guest/Register';
 import { Dashboard } from '../pages/user/Dashboard';
 import Profile from '../pages/user/Profile';
 import { Clubs } from '../pages/user/Clubs';
+import { ClubPage } from '../pages/user/ClubPage';
 
 import { Events } from '../pages/user/Events';
 import { MyClubs } from '../pages/user/MyClubs';
@@ -55,6 +56,7 @@ const router = createBrowserRouter([
           { path: PATHS.app.dashboard, element: <Dashboard /> },
           { path: PATHS.app.profile, element: <Profile /> },
           { path: PATHS.app.clubs, element: <Clubs /> },
+          { path: PATHS.app.clubDetail, element: <ClubPage /> },
           { path: PATHS.app.events, element: <Events /> },
           { path: PATHS.app.myClubs, element: <MyClubs /> },
         ],

@@ -13,6 +13,7 @@ export const PATHS = {
     clubs: '/clubs',
     events: '/events',
     myClubs: '/myclubs',
+    clubDetail: '/clubs/:id',
   },
   admin: {
     root: '/admin',
