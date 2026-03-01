@@ -15,7 +15,7 @@ export const PATHS = {
         myClubs: '/myclubs',
         clubDetail: '/clubs/:id',
     },
-    ClubManager: {
+    clubmanager: {
         clubs: '/manager/clubs',
         events: '/manager/events',
     },

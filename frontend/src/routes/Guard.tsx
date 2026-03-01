@@ -28,9 +28,11 @@ export function Guard({
     }
 
     if (publicOnly && isAuthenticated) {
-        const destination = user?.role === 'admin'
-            ? PATHS.admin.dashboard
-            : PATHS.app.dashboard;
+        const destination = redirectTo ?? (() => {
+            if (user?.role === 'admin') return PATHS.admin.dashboard;
+            if (user?.role === 'clubmanager') return PATHS.clubmanager.clubs;
+            return PATHS.app.dashboard;
+        })();
         return <Navigate to={destination} replace />;
     }
 

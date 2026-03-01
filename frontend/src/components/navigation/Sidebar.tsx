@@ -50,8 +50,8 @@ const clubManagerNavItems: NavItem[] = [
     {to: PATHS.app.myClubs, label: 'My Clubs', icon: StarIcon},
     {to: PATHS.app.clubs, label: 'Clubs', icon: UserGroupIcon},
     {to: PATHS.app.events, label: 'Events', icon: CalendarIcon},
-    {to: PATHS.ClubManager.clubs, label: 'Manage Clubs', icon: WrenchScrewdriverIcon},
-    {to: PATHS.ClubManager.events, label: 'Manage Events', icon: CalendarDaysIcon},
+    {to: PATHS.clubmanager.clubs, label: 'Manage Clubs', icon: WrenchScrewdriverIcon},
+    {to: PATHS.clubmanager.events, label: 'Manage Events', icon: CalendarDaysIcon},
 ];
 
 const adminNavItems: NavItem[] = [
@@ -69,7 +69,7 @@ const sectionLabel: Record<string, string> = {
 
 function getNavItems(role: User['role']): NavItem[] {
     if (role === 'admin') return adminNavItems;
-    if (role === 'ClubManager') return clubManagerNavItems;
+    if (role === 'clubmanager') return clubManagerNavItems;
     return userNavItems;
 }
 
