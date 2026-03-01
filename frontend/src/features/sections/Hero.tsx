@@ -1,6 +1,4 @@
 import React from "react";
-import { Button } from "../../components/ui/Button";
-import { PATHS } from "../../routes/paths";
 
 const Hero: React.FC = () => {
     return (
@@ -19,15 +17,6 @@ const Hero: React.FC = () => {
                             Join over 12,000 students using Club Hub to find events, join organizations, and make the
                             most of university life.
                         </p>
-
-                        <div className="flex flex-col sm:flex-row gap-4 mb-10">
-                            <Button variant="primary" size="md" type="internal" to={PATHS.app.clubs}>
-                                Find a Club
-                            </Button>
-                            <Button variant="secondary" size="md" type="internal" to={PATHS.app.events}>
-                                View Events
-                            </Button>
-                        </div>
                     </div>
                 </div>
             </div>
