@@ -68,6 +68,7 @@ api.interceptors.response.use(
       window.dispatchEvent(
         new CustomEvent('toast:error', { detail: message || 'Server error. Please try again.' })
       );
+        window.location.href = '/500';
     }
 
     return Promise.reject(error);

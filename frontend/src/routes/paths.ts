@@ -6,7 +6,8 @@ export const PATHS = {
     forbidden: '/403',
     notFound: '/404',
     unauthorized: '/401',
-    badRequest: '/400'
+    badRequest: '/400' ,
+    serverError: '/500' ,
   },
   app: {
     root: '/dashboard',

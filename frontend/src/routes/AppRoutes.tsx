@@ -27,6 +27,7 @@ import {NotFound} from '../pages/NotFound';
 import {Forbidden} from '../pages/Forbidden';
 import {Unauthorised} from '../pages/Unauthorised';
 import {BadRequest} from '../pages/BadRequest';
+import {ServerError} from '../pages/ServerError';
 
 
 const router = createBrowserRouter([
@@ -144,6 +145,7 @@ const router = createBrowserRouter([
     {path: '*', element: <NotFound/>},
     {path: PATHS.public.unauthorized, element: <Unauthorised/>},
     {path: PATHS.public.badRequest,element: <BadRequest/>},
+    {path: PATHS.public.serverError,element: <ServerError/>},
 ]);
 
 export const AppRoutes = () => <RouterProvider router={router}/>;
