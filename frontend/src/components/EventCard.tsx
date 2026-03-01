@@ -1,7 +1,7 @@
-// EventCard.tsx
 import React from "react";
 import { CalendarIcon, MapPinIcon } from "@heroicons/react/24/outline";
 import { Card, CardContent } from "./ui/Card";
+import { Button } from "./ui/Button";
 import type { Event } from "../types";
 
 interface EventCardProps {
@@ -18,15 +18,12 @@ const EventCard: React.FC<EventCardProps> = ({ event }) => {
                     alt={event.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <span
-                    className="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold bg-white/80"
-                >
+                <span className="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold bg-white/80">
                     {event.category}
                 </span>
             </div>
 
             {/* Body: Title + Info */}
-            
             <CardContent className="p-5">
                 <h3 className="text-lg font-bold text-text-primary mb-3 line-clamp-1">{event.title}</h3>
 
@@ -41,7 +38,7 @@ const EventCard: React.FC<EventCardProps> = ({ event }) => {
                     </div>
                 </div>
 
-                {/* Footer: Attendees */}
+                {/* Footer: Attendees + Action Buttons */}
                 <div className="mt-5 pt-4 border-t border-border-default flex justify-between items-center">
                     <div className="flex -space-x-2">
                         {[1, 2, 3].map((i) => (
@@ -58,6 +55,15 @@ const EventCard: React.FC<EventCardProps> = ({ event }) => {
                         <div className="w-6 h-6 rounded-full bg-bg-primary flex items-center justify-center text-[9px] font-bold text-text-secondary">
                             +50
                         </div>
+                    </div>
+
+                    <div className="flex items-center gap-1.5">
+                        <Button variant="ghost" size="sm" onClick={() => {}}>
+                            View
+                        </Button>
+                        <Button variant="primary" size="sm" onClick={() => {}}>
+                            Join
+                        </Button>
                     </div>
                 </div>
             </CardContent>
