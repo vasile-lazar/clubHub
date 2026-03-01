@@ -14,6 +14,7 @@ export const PATHS = {
     events: '/events',
     myClubs: '/myclubs',
     clubDetail: '/clubs/:id',
+    eventDetail: '/events/:id'
   },
   admin: {
     root: '/admin',
