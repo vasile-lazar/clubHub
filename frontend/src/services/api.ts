@@ -42,10 +42,15 @@ api.interceptors.response.use(
     const message =
       (error.response?.data as { message?: string })?.message ?? 'Something went wrong';
 
+      if (status === 400) {
+          window.location.href = '/400';
+          return Promise.reject(error);
+      }
+      
     if (status === 401) {
       clearAuth();
       window.dispatchEvent(new CustomEvent('auth:logout'));
-      window.location.href = '/login';
+      window.location.href = '/401';
       return Promise.reject(error);
     }
 
@@ -63,6 +68,7 @@ api.interceptors.response.use(
       window.dispatchEvent(
         new CustomEvent('toast:error', { detail: message || 'Server error. Please try again.' })
       );
+        window.location.href = '/500';
     }
 
     return Promise.reject(error);
