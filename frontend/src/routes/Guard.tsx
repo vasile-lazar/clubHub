@@ -28,7 +28,10 @@ export function Guard({
     }
 
     if (publicOnly && isAuthenticated) {
-        return <Navigate to={redirectTo ?? PATHS.app.root} replace />;
+        const destination = user?.role === 'admin'
+            ? PATHS.admin.dashboard
+            : PATHS.app.dashboard;
+        return <Navigate to={destination} replace />;
     }
 
     if (requireAuth && !isAuthenticated) {
