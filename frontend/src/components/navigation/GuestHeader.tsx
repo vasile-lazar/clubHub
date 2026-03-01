@@ -9,7 +9,7 @@ export const GuestHeader: React.FC = () => (
             <div className="flex justify-between items-center h-16">
                 <Link
                     to={PATHS.public.home}
-                    className="text-2xl font-black tracking-tighter text-white hover:opacity-90"
+                    className="text-4xl font-black tracking-tighter hover:opacity-90"
                 >
                     <span className= "text-text-primary">Club</span>
                     <span className="text-text-inverse">Hub</span>

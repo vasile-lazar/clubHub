@@ -4,6 +4,7 @@ import {
     HomeIcon,
     UserIcon,
     UserGroupIcon,
+    StarIcon,
     CalendarIcon,
     ArrowLeftEndOnRectangleIcon,
     Bars3Icon,
@@ -37,7 +38,7 @@ interface SidebarProps {
 const userNavItems: NavItem[] = [
     {to: PATHS.app.dashboard, label: 'Dashboard', icon: HomeIcon},
     {to: PATHS.app.profile, label: 'Profile', icon: UserIcon},
-    {to: PATHS.app.myClubs, label: 'My Clubs', icon: UserGroupIcon},
+    {to: PATHS.app.myClubs, label: 'My Clubs', icon: StarIcon},
     {to: PATHS.app.clubs, label: 'Clubs', icon: UserGroupIcon},
     {to: PATHS.app.events, label: 'Events', icon: CalendarIcon},
 ];

@@ -17,6 +17,7 @@ module.exports = {
           secondary: 'var(--text-secondary)',
           orange: 'var(--text-orange)',
           inverse: 'var(--text-inverse)',
+          muted: 'var(--text-muted)',
           placeholder: 'var(--text-placeholder)',
           link: 'var(--text-link)',
           linkHover: 'var(--text-link-hover)',

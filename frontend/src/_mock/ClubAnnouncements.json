@@ -1,14 +1,57 @@
 ﻿[
   {
     "id": 1,
-    "title": "New Book Club Created",
-    "description": "A new Book Club was created for literature lovers.",
-    "date": "2026-02-08"
+    "clubId": 1,
+    "clubName": "Tech Club",
+    "title": "New Semester Registration Open",
+    "content": "We are officially accepting new members for the Spring 2026 semester. Applications close next week, so make sure to register early.",
+    "author": "Club President",
+    "date": "2026-02-20",
+    "priority": "high",
+    "isPinned": true
   },
   {
     "id": 2,
-    "title": "Art Club Update",
-    "description": "The Art Club added a new workshop on watercolor painting.",
-    "date": "2026-02-07"
+    "clubId": 1,
+    "clubName": "Tech Club",
+    "title": "Room Change for Weekly Meeting",
+    "content": "Please note that this week's meeting will take place in Room 310 instead of Room 204 due to maintenance work.",
+    "author": "Club Secretary",
+    "date": "2026-02-18",
+    "priority": "normal",
+    "isPinned": false
+  },
+  {
+    "id": 3,
+    "clubId": 1,
+    "clubName": "Tech Club",
+    "title": "Workshop Reminder",
+    "content": "Don't forget about our AI Tools Workshop this Saturday at 4 PM. Bring your laptop and charger.",
+    "author": "Event Coordinator",
+    "date": "2026-02-15",
+    "priority": "normal",
+    "isPinned": false
+  },
+  {
+    "id": 4,
+    "clubId": 2,
+    "clubName": "Music Society",
+    "title": "Spring Festival Auditions",
+    "content": "Auditions for the Spring Music Festival are now open. Sign up through the club portal before March 1st.",
+    "author": "Music Director",
+    "date": "2026-02-21",
+    "priority": "high",
+    "isPinned": true
+  },
+  {
+    "id": 5,
+    "clubId": 2,
+    "clubName": "Music Society",
+    "title": "Rehearsal Schedule Update",
+    "content": "Rehearsals will now be held every Thursday at 6 PM in the Main Auditorium.",
+    "author": "Club Secretary",
+    "date": "2026-02-19",
+    "priority": "normal",
+    "isPinned": false
   }
 ]

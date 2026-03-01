@@ -43,9 +43,6 @@ export const MyClubs: React.FC = () => {
             Manage and explore the clubs you&apos;ve joined
           </p>
         </div>
-        <Link to={PATHS.app.clubs}>
-          <Button variant="primary">Discover More Clubs</Button>
-        </Link>
       </div>
 
       {notifications.length > 0 && (
