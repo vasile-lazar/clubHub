@@ -45,21 +45,12 @@ export const FeaturedEvents = () => {
                         <h2 className="text-3xl font-bold text-text-orange mb-2">Happening This Week</h2>
                         <p className="text-text-secondary">Don't miss out on the most popular campus activities.</p>
                     </div>
-                    <button className="hidden sm:flex items-center text-text-orange font-medium transition-colors">
-                        View all events <div className="w-4 h-4 ml-1" />
-                    </button>
                 </div>
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {EVENTS.map((event) => (
                         <EventCard key={event.id} event={event} />
                     ))}
-                </div>
-
-                <div className="mt-8 text-center sm:hidden">
-                    <button className="inline-flex items-center text-text-orange font-medium transition-colors">
-                        View all events <div className="w-4 h-4 ml-1" />
-                    </button>
                 </div>
             </div>
         </section>
