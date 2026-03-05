@@ -22,6 +22,7 @@ services:
       JWT__Issuer: ${JWT_ISSUER}
       JWT__Audience: ${JWT_AUDIENCE}
       ASPNETCORE_URLS: http://+:8080
+      ASPNETCORE_ENVIRONMENT: Development
     ports:
       - "8080:8080"
 
