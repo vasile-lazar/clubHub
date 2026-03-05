@@ -1,6 +1,5 @@
 ﻿FROM mcr.microsoft.com/dotnet/sdk:8.0 AS builder
 WORKDIR /app
-COPY backend.sln ./
 COPY ClubHub.Api/ClubHub.Api.csproj ClubHub.Api/
 COPY ClubHub.DataAccessLayer/ClubHub.DataAccessLayer.csproj ClubHub.DataAccessLayer/
 COPY ClubHub.BusinessLayer/ClubHub.BusinessLayer.csproj ClubHub.BusinessLayer/
