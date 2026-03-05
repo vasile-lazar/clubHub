@@ -1,0 +1,36 @@
+name: Deploy Check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 20
+      - name: Install dependencies
+        run: npm install
+        working-directory: frontend
+      - name: Build
+        run: npm run build
+        working-directory: frontend
+
+  build-backend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 8.0
+      - name: Restore
+        run: dotnet restore ClubHub.Api/ClubHub.Api.csproj
+        working-directory: backend
+      - name: Build
+        run: dotnet build ClubHub.Api/ClubHub.Api.csproj -c Release
+        working-directory: backend
