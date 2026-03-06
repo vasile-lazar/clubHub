@@ -6,4 +6,9 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\ClubHub.DataAccessLayer\ClubHub.DataAccessLayer.csproj" />
+      <ProjectReference Include="..\ClubHub.Domain\ClubHub.Domain.csproj" />
+    </ItemGroup>
+
 </Project>
